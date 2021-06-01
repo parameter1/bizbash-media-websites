@@ -198,6 +198,7 @@ $theme-site-header-breakpoints: map-merge(
 @import "../../node_modules/@parameter1/base-cms-marko-web-theme-default/skins/orion/skin";
 @import "../../node_modules/@parameter1/base-cms-marko-web-gtm/scss/slot";
 @import "../../node_modules/@parameter1/base-cms-marko-web-reveal-ad/scss/reveal-ad";
+@import "../../node_modules/@parameter1/base-cms-marko-web-html-sitemap/scss/index";
 @import "components/ads";
 @import "components/carousel";
 @import "components/directory";
@@ -228,8 +229,6 @@ $theme-site-header-breakpoints: map-merge(
 
 .document-container-header {
   position: relative;
-  flex-shrink: 0;
-  flex-grow: 1;
   width: 100%;
   padding-top: calculate-navbar-height-for(default);
 
