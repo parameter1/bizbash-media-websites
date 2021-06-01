@@ -135,6 +135,7 @@ module.exports = {
         { href: '/page/our-events', label: 'Events & Awards' },
         { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazines' },
         { href: '/white-papers', label: 'White Papers' },
+        { href: '/site-map', label: 'Site Map' },
       ],
     },
   ],
