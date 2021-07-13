@@ -45,6 +45,7 @@
     "@type": "string",
     "@name": "string",
     "@aliases": "array",
+    "@display-ads": "boolean",
     "@section-id": "number",
     "@section-name": "string",
     "@section-skip": "number"

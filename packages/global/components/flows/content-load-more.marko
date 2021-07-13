@@ -1,4 +1,5 @@
 import { getAsArray, getAsObject } from "@parameter1/base-cms-object-path";
+import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 
 $ const { GAM } = out.global;
 
@@ -7,37 +8,44 @@ $ const {
   bottomLeaderboard,
 } = input;
 $ const nodes = getAsArray(input, "nodes");
+$ const displayAds = defaultValue(input.displayAds, true);
+$ const adName = "load-more";
 
 <if(nodes.length)>
-  $ const nodes1 = nodes.slice(0,5);
-  $ const nodes2 = nodes.slice(5,10);
-  $ const nodes3 = nodes.slice(10, 14);
-  $ const nodes4 = nodes.slice(14);
+  <if(displayAds)>
+    $ const nodes1 = nodes.slice(0,5);
+    $ const nodes2 = nodes.slice(5,10);
+    $ const nodes3 = nodes.slice(10, 14);
+    $ const nodes4 = nodes.slice(14);
 
-  <!-- Card Deck flow with 300x250 in ad slot 4 -->
-  <if(nodes1.length)>
-    <global-content-card-deck-flow nodes=nodes1 ad-index=4 ad-name="load-more" />
-  </if>
+    <!-- Card Deck flow with 300x250 in ad slot 4 -->
+    <if(nodes1.length)>
+      <global-content-card-deck-flow nodes=nodes1 ad-index=4 ad-name=adName />
+    </if>
 
-  <if(nodes2.length)>
-    <global-content-card-deck-flow nodes=nodes2 ad-index=2 ad-name="load-more" />
-  </if>
+    <if(nodes2.length)>
+      <global-content-card-deck-flow nodes=nodes2 ad-index=2 ad-name=adName />
+    </if>
 
-  <if(nodes3.length)>
-    <div class="row">
-      <div class="col-lg-4">
-        <marko-web-gam-define-display-ad ...GAM.getAdUnit({ name: "load-more", size: [300, 600], aliases }) modifiers=["in-card"] />
+    <if(nodes3.length)>
+      <div class="row">
+        <div class="col-lg-4">
+          <marko-web-gam-define-display-ad ...GAM.getAdUnit({ name: adName, size: [300, 600], aliases }) modifiers=["in-card"] />
+        </div>
+        <div class="col-lg-8">
+          <global-content-card-deck-flow col=2 nodes=nodes3 />
+        </div>
       </div>
-      <div class="col-lg-8">
-        <global-content-card-deck-flow col=2 nodes=nodes.slice(10)/>
-      </div>
-    </div>
-  </if>
+    </if>
 
-  <if(nodes4.length)>
-    <global-content-card-deck-flow nodes=nodes2 />
+    <if(nodes4.length)>
+      <global-content-card-deck-flow nodes=nodes4 />
+    </if>
+    <if(bottomLeaderboard)>
+      <marko-web-gam-define-display-ad ...bottomLeaderboard />
+    </if>
   </if>
-  <if(bottomLeaderboard)>
-    <marko-web-gam-define-display-ad ...bottomLeaderboard />
-  </if>
+  <else>
+    <global-content-card-deck-flow nodes=nodes />
+  </else>
 </if>

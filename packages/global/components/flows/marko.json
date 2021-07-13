@@ -47,6 +47,7 @@
   "<global-content-load-more-flow>": {
     "template": "./content-load-more.marko",
     "@nodes": "array",
+    "@display-ads": "boolean",
     "@aliases": "array"
   },
   "<global-content-card-deck-flow>": {
@@ -55,6 +56,10 @@
       "@index": "number",
       "@name": "string",
       "@aliases": "array"
+    },
+    "@display-ads": {
+      "type": "boolean",
+      "default-value": true
     },
     "@col": {
       "type": "number",

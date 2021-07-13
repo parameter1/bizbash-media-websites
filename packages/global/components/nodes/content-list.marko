@@ -32,7 +32,6 @@ $ const isUpcoming = content.startDate > Date.now();
     <@title tag="h5">
       <marko-web-content-short-name tag=null obj=content link={ attrs: linkAttrs } />
     </@title>
-    $ console.log(isWebinar, content.startDate, content.linkUrl)
     <@text modifiers=["teaser"] show=(withTeaser && content.teaser)>
       <marko-web-content-teaser tag=null obj=content link={ attrs: linkAttrs } />
     </@text>
