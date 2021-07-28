@@ -2,24 +2,22 @@ $ const {
   id,
   type,
   name,
-  displayAds,
   aliases,
   sectionId,
   sectionName,
   sectionSkip
 } = input;
-$ const limit = displayAds ? 14 : 15
 
 <if(type === "contact")>
   <marko-web-load-more
     header=`More from ${name}`
     component-name="content-load-more-flow"
-    component-input={ displayAds, aliases }
+    component-input={ aliases }
     fragment-name="content-list"
     query-name="all-author-content"
     query-params={
       skip: 4,
-      limit,
+      limit: 9,
       contactId: id,
       withSite: false,
     }
@@ -30,10 +28,10 @@ $ const limit = displayAds ? 14 : 15
   <marko-web-load-more
     header=`More from ${name}`
     component-name="content-load-more-flow"
-    component-input={ displayAds, aliases }
+    component-input={ aliases }
     fragment-name="content-list"
     query-name="all-company-content"
-    query-params={ companyId: id, limit, }
+    query-params={ companyId: id }
     page-input={ for: "content", id, type }
   />
 </else-if>
@@ -41,10 +39,10 @@ $ const limit = displayAds ? 14 : 15
   <marko-web-load-more
     header=`More in ${sectionName}`
     component-name="content-load-more-flow"
-    component-input={ displayAds, aliases, nativeX: input.nativeX }
+    component-input={ aliases, nativeX: input.nativeX }
     fragment-name="content-list"
     query-name="website-scheduled-content"
-    query-params={ sectionId, excludeContentIds: [id], limit, skip: sectionSkip }
+    query-params={ sectionId, excludeContentIds: [id], limit: 14, skip: sectionSkip }
     page-input={ for: "content", id, type }
   />
 </else-if>
