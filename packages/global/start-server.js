@@ -6,6 +6,7 @@ const cleanResponse = require('@parameter1/base-cms-marko-core/middleware/clean-
 const document = require('./components/document');
 const components = require('./components');
 const fragments = require('./fragments');
+const oembedHandler = require('./oembed-handler');
 
 const buildNativeXConfig = require('./native-x/build-config');
 
@@ -42,5 +43,8 @@ module.exports = (options = {}) => {
       app.use(cleanResponse());
     },
     onAsyncBlockError: e => newrelic.noticeError(e),
+    embeddedMediaHandlers: {
+      oembed: oembedHandler,
+    },
   });
 };
