@@ -6,17 +6,16 @@ const buildInstagramElement = ({
   lazy = true,
   width,
 }) => {
+  const src = `${href.replace(/\/+$/g, '')}/embed/?cr=1`;
   const params = {
-    href: decodeURIComponent(href),
+    src,
     ...(lazy && { lazy: true }),
     ...(width && { width }),
   };
-  const data = Object.keys(params).map(key => `data-${key}="${params[key]}"`);
-  const changeProperty = new RegExp('data-href=');
-  const changetoSrc = data[0].replace(changeProperty, 'src=');
-  const trailingSlashRemover = new RegExp('/"');
-  const removeTrailingSlash = changetoSrc.replace(trailingSlashRemover, '');
-  data[0] = removeTrailingSlash.concat('/embed/?cr=1');
+  const data = Object.keys(params).map(key => `${key}="${params[key]}"`);
+  if (data.lazy) {
+    data.loading = 'lazy';
+  }
   return `
   <iframe class="instagram-media instagram-media-rendered"
   ${data.join(' ')}
