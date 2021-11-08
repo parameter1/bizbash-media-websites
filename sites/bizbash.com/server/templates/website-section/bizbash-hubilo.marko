@@ -43,8 +43,6 @@ $ const { id, alias, name, pageNode } = data;
 
       <div class="row">
         <div class="col-lg-4 mb-block">
-        <!-- This won't load anything as nothing is scheduled YET -->
-         <!--
           <marko-web-query|{ nodes }|
             name="website-scheduled-content"
             params={ sectionAlias: "hubilo/event-masters", limit: 5, queryFragment }
@@ -55,10 +53,6 @@ $ const { id, alias, name, pageNode } = data;
               </@header>
             </global-content-list-flow>
           </marko-web-query>
-          -->
-          <!-- REMOVE NEXT 2 LINES once content is scheduled and previous is uncommented -->
-          <div class="node-list__header">Event Masters</div>
-          <p class="coming-soon">COMING SOON!</p>
         </div>
         <div class="col-lg-4 mb-block">
           <marko-web-query|{ nodes }|
