@@ -1,0 +1,24 @@
+$ const { id, type, pageNode } = input;
+
+<global-content-wrapper-layout
+  id=id
+  type=type
+  page-node=pageNode
+>
+  <@section|{ blockName, content }|>
+    $ const { primarySection } = content;
+    <div class="content-page-header">
+      <theme-content-page-breadcrumbs section=primarySection />
+      <marko-web-content-name tag="h1" block-name=blockName obj=content />
+    </div>
+    <div class="content-page-body">
+      <theme-page-contents|{ blockName }| attrs={ "data-gallery-id": id }>
+
+        $ const bodyId = `content-body-${content.id}`;
+        <marko-web-content-body block-name=blockName obj=content attrs={ id: bodyId } />
+
+      </theme-page-contents>
+    </div>
+  </@section>
+
+</global-content-wrapper-layout>

@@ -1,0 +1,78 @@
+import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
+import { getAsArray, get } from "@parameter1/base-cms-object-path";
+
+$ const { id, type, pageNode } = input;
+$ const { GAM } = out.global;
+$ const sections = getAsArray(input, "sections");
+$ const alias = get(input, "primarySection.alias");
+
+<theme-content-page id=id type=type>
+  <@head>
+    <marko-web-gtm-content-context|{ context }| id=id>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-content-context>
+    <marko-web-resolve-page|{ data: content }| node=pageNode>
+      <marko-web-p1-events-track-content node=content />
+    </marko-web-resolve-page>
+  </@head>
+  <if(GAM.enableRevealAd)>
+    <@above-container>
+      <marko-web-resolve-page|{ data: content }| node=pageNode>
+        $ const aliases = hierarchyAliases(content.primarySection);
+        <theme-reveal-ad-handler select-all-targets=true path=GAM.getAdUnit({ name: "reskin", aliases }).path id="reveal-ad" />
+      </marko-web-resolve-page>
+    </@above-container>
+  </if>
+  <@page>
+    <marko-web-resolve-page|{ data: content }| node=pageNode>
+      $ const aliases = hierarchyAliases(content.primarySection);
+      $ const authors = getAsArray(content, "authors.edges").map((edge) => edge.node);
+      <marko-web-page-wrapper>
+        <for|s| of=sections>
+          <@section|{ blockName }| modifiers=s.modifiers>
+            <${s.renderBody}
+              block-name=blockName
+              content=content
+              aliases=aliases
+              authors=authors
+            />
+          </@section>
+        </for>
+
+        <!-- <@section>
+          <theme-gam-define-display-ad
+            name="rotation"
+            position="content_page"
+            aliases=aliases
+            modifiers=["inter-block"]
+          />
+        </@section> -->
+      </marko-web-page-wrapper>
+    </marko-web-resolve-page>
+  </@page>
+  <@below-page>
+    <if(type !== "page")>
+      <marko-web-page-container for="content" tag="div" id=id type=type modifiers=["below"]>
+        <!-- Refresh sticky, right-rail infinite scroll ad -->
+        <!-- <marko-web-gam-refresh-ad on="load-more-in-view" slot-id="gpt-ad-rail-infinite" /> -->
+
+        <marko-web-resolve-page|{ data: content, resolved }| node=pageNode>
+          $ const section = content.primarySection;
+          <marko-web-page-wrapper>
+            <@section|{ aliases }|>
+              <global-section-feed-wrapper aliases=aliases alias=content.primarySection.alias>
+                <@header>More in ${content.primarySection.name}</@header>
+                <@query-params excludeContentIds=[content.id] />
+              </global-section-feed-wrapper>
+            </@section>
+          </marko-web-page-wrapper>
+        </marko-web-resolve-page>
+      </marko-web-page-container>
+    </if>
+  </@below-page>
+  <@foot>
+    <marko-web-resolve-page|{ data: content }| node=pageNode>
+      <theme-fixed-ad-bottom aliases=hierarchyAliases(content.primarySection) />
+    </marko-web-resolve-page>
+  </@foot>
+</theme-content-page>

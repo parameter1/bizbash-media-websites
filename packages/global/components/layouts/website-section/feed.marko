@@ -1,0 +1,80 @@
+import { getAsArray } from "@parameter1/base-cms-object-path";
+
+$ const { id, alias, name, pageNode } = input;
+$ const sections = getAsArray(input, "sections");
+
+$ const { pagination: p } = out.global;
+$ const perPage = 12;
+
+<global-website-section-default-layout
+  id=id
+  alias=alias
+  name=name
+  page-node=pageNode
+>
+  <@head>
+    <theme-section-feed-block|{ totalCount }| alias=alias count-only=true>
+      <theme-pagination-controls
+        per-page=perPage
+        total-count=totalCount
+        path=alias
+        as-rels=true
+      />
+    </theme-section-feed-block>
+  </@head>
+
+  <@section|{ aliases }| modifiers=["first-sm"]>
+    <theme-gam-define-display-ad
+      name="leaderboard"
+      position="section_page"
+      aliases=aliases
+      modifiers=["inter-block"]
+    />
+  </@section>
+
+  <@section|{ blockName, section, aliases }|>
+    <if(input.beforeName)>
+      <${input.beforeName}
+        aliases=aliases
+        block-name=blockName
+        section=section
+      />
+    </if>
+
+    <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj=section>
+      <if(p.page > 1)>${value}: Page ${p.page}</if>
+      <else>${value}</else>
+    </marko-web-website-section-name>
+
+    <if(input.afterName)>
+      <${input.afterName}
+        aliases=aliases
+        block-name=blockName
+        section=section
+      />
+    </if>
+
+    <global-section-feed-wrapper aliases=aliases alias=alias>
+      <@rail>
+        <global-latest-opinion-list-block
+          title="Opinion"
+          alias="opinion"
+          class="sticky-top"
+        />
+      </@rail>
+      <@rail>
+        <global-most-popular-list-block class="sticky-top" />
+      </@rail>
+    </global-section-feed-wrapper>
+  </@section>
+
+  <for|s| of=sections>
+    <@section|{ blockName, section, aliases }| modifiers=s.modifiers>
+      <${s.renderBody}
+        block-name=blockName
+        section=section
+        aliases=aliases
+      />
+    </@section>
+  </for>
+</global-website-section-default-layout>

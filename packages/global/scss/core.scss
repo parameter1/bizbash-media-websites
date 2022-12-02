@@ -1,0 +1,563 @@
+// import local variables
+@import "variables";
+
+// import theme css
+@import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/core";
+// Bottom Sticky Leader Board
+@import "../../node_modules/@parameter1/base-cms-marko-web-gam/scss/fixed-ad-bottom";
+// Reveal Ad CSS
+// @import "../../node_modules/@parameter1/base-cms-marko-web-reveal-ad/scss/reveal-ad";
+// @import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/components/reveal-ad";
+
+// package component css inclusions
+@import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/directory-facets";
+@import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/company-search";
+@import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/section-search";
+
+// skin components
+@import "./components/section-feed-upcoming";
+@import "./components/content-meter";
+@import "./components/directory-section-feed";
+@import "./components/site-footer";
+@import "./components/site-navbar";
+@import "./components/site-navbar-c";
+@import "./components/user";
+
+body {
+  -webkit-font-smoothing: antialiased;
+  // set a default letter spacing of .25px, since most fonts have some form of spacing
+  letter-spacing: .25px;
+}
+
+label {
+  @include skin-typography($style: "input-label");
+}
+
+.col-spacer {
+  margin-bottom: 30px;
+  @include media-breakpoint-up(md) {
+    margin-bottom: 0;
+  }
+}
+
+.form-control,
+.custom-select {
+  letter-spacing: $skin-input-letter-spacing;
+  border-radius: $input-border-radius; // must force this value since radius is disabled
+  &:hover:not(:focus) {
+    border-color: $skin-input-hover-border-color;
+  }
+
+  &--bg-white {
+    background-color: #fff;
+    &:focus {
+      background-color: #fff;
+    }
+  }
+}
+
+.custom-control-label {
+  &::before {
+    border-radius: $input-border-radius; // must force this value since radius is disabled
+  }
+  &--bg-white {
+    &::before {
+      background-color: #fff;
+    }
+  }
+}
+
+.btn-primary {
+  @include skin-button($style: "primary");
+}
+
+.btn-secondary {
+  @include skin-button($style: "secondary");
+}
+
+.btn-light {
+  @include skin-button($style: "light");
+}
+
+.document-container {
+  padding-top: 0;
+  background-color: $white;
+}
+
+.node {
+  $self: &;
+  $image-border: 1px solid rgba(239, 239, 239, .9);
+
+  &__header {
+    margin-bottom: 6px;
+  }
+
+  &__content-published {
+    @include skin-typography($style: "date");
+  }
+
+  &__image {
+    border: $image-border;
+  }
+
+  &__image-inner-wrapper--fluid-3by2 {
+    #{ $self } {
+      &__image {
+        border: $image-border;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &--video-content-type {
+    #{ $self } {
+      &__image-inner-wrapper {
+        &::after {
+          $size: 70px;
+          width: 70px;
+          height: 70px;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.node-list {
+  &__header {
+    padding-bottom: 0;
+  }
+}
+
+.card-deck-flow {
+  $self: &;
+
+  &--3-cols {
+    #{ $self } {
+      &__node {
+        @include media-breakpoint-up(md) {
+          @include make-col(4);
+        }
+        @include media-breakpoint-up(lg) {
+          @include make-col(4);
+        }
+      }
+    }
+  }
+
+  &--4-cols {
+    #{ $self } {
+      &__node {
+        // account for smaller container max-width and break earlier than normal
+        @include media-breakpoint-up(sm) {
+          @include make-col(12);
+        }
+        @include media-breakpoint-up(md) {
+          @include make-col(6);
+        }
+        @include media-breakpoint-up(lg) {
+          @include make-col(3);
+        }
+
+        // @include media-breakpoint-down(sm) {
+        //   margin-bottom: 16px;
+        // }
+        // &:last-child {
+        //   @include media-breakpoint-down(sm) {
+        //     margin-bottom: 0;
+        //   }
+        // }
+      }
+    }
+  }
+}
+
+// ensure all anvato embeds are treated like videos
+[data-oembed-provider="Anvato"] {
+  @extend .embed-responsive;
+  @extend .embed-responsive-16by9;
+}
+
+// Begin right rail content layout CSS
+// .content-page-header {
+//   margin-left: 0;
+//   margin-right: 0;
+//   max-width: none;
+// }
+.page-wrapper {
+  &__content-name, &__deck {
+    max-width: 950px;
+    margin-bottom: 1rem;
+  }
+}
+// End right rail content layout CSS
+
+.page-wrapper {
+  // $marko-web-document-container-gutter: 20px; couldn't get to work
+  padding: 20px;
+  &--no-padding-x {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .breadcrumbs {
+    &--website-section {
+      @include skin-typography($style: "slug-medium", $link-style: "primary");
+      .breadcrumb {
+        padding-bottom: 8px;
+      }
+    }
+    .breadcrumb {
+      padding-bottom: 0.7rem;
+    }
+    .breadcrumb-item {
+      padding-bottom: 0.3rem;
+    }
+  }
+  &__website-section-description {
+    font-size: 18px;
+  }
+  &__section {
+    .breadcrumbs {
+      margin-bottom: .5rem;
+    }
+    &--break-container {
+      @include media-breakpoint-down(md) {
+        margin-right: -16px;
+        margin-left: -16px;
+      }
+    }
+    &--first-sm {
+      margin-bottom: 0;
+    }
+  }
+  .details__image {
+    clear: both;
+    float: right;
+  }
+}
+
+// .site-header {
+//   margin-bottom: 1rem;
+//   @media (min-width: 980px) {
+//     margin-bottom: 2rem;
+//   }
+// }
+.ad-container {
+  $self: &;
+
+  $container-bottom-padding: 10px;
+  $wrapper-first-child-padding: 16px;
+  $label-bottom-padding: 4px;
+  $label-font-size: 10px;
+  $label-line-height: 1;
+  $container-height: $container-bottom-padding + $wrapper-first-child-padding + ($label-font-size * $label-line-height) + $label-bottom-padding;
+
+  &--inline-content#{&}--template-inline-content-desktop,
+  &--inline-content#{&}--template-inline-content-mobile {
+    margin-bottom: 0;
+    min-height: 250px + $container-height;
+    > *:first-child {
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+    }
+  }
+  &--inline-content#{&}--template-inline-content-desktop {
+    display: none;
+    background-color: #fff;
+    margin-left: 0;
+    margin-right: 0;
+    > *:first-child {
+      border-top: 3px solid $skin-ad-bg-color;
+      border-bottom: 3px solid $skin-ad-bg-color;
+    }
+    @media (min-width: 980px) {
+      display: block;
+    }
+  }
+  &--inline-content#{&}--template-inline-content-mobile {
+    @media (min-width: 780px) {
+      display: block;
+    }
+    @media (min-width: 980px) {
+      display: none;
+    }
+  }
+  &--inline-section-feed {
+    min-height: 250px + $container-height;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-left: 0;
+    background-color: #fff;
+    > *:first-child {
+      padding-bottom: 30px;
+      border-bottom: 1px solid $skin-ad-bg-color;
+    }
+  }
+  &--template-leaderboard {
+    min-height: $leaderboard-min-height-mobile + $container-height;
+    background-color: #fff;
+    > *:first-child {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    @media (min-width: 980px) {
+      min-height: $leaderboard-min-height-desktop + $container-height;
+    }
+  }
+}
+
+.site-footer {
+  &__corporate-logo {
+    filter: brightness(0) invert(1);
+  }
+}
+
+// Begin right rail content layout CSS
+.content-page-body {
+  padding-top: 12px;
+  min-height: 500px;
+  .primary-image {
+    &--aligned-center {
+      @media (min-width: 900px) {
+        margin-left: 0;
+        width: 700px;
+      }
+    }
+  }
+  @media (min-width: 900px) {
+    .primary-image {
+      &--aligned-center {
+        margin-left: 0;
+        width: initial;
+      }
+    }
+  }
+}
+.page {
+  .content-page-header {
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  &--content-page {
+    .content-page-header {
+      max-width: 700px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+  &--search {
+    .ad-container {
+      &--template-leaderboard {
+        min-height: 0;
+        display: none;
+      }
+    }
+  }
+}
+
+.node-list {
+  &--latest-content-list {
+    .node-list {
+      &__header {
+        padding-top: 0;
+      }
+    }
+  }
+  &--latest-opinion-list {
+    .node {
+      &__image {
+        border: none;
+      }
+    }
+  }
+}
+// End right rail content layout CSS
+
+// page & block title
+.page--load-more .node-list,
+.top-stories,
+.related-stories,
+.content-card-deck,
+.section-cards {
+  &__header {
+    position: relative;
+    @include skin-typography($style: "header-2");
+    margin-bottom: 16px;
+    padding-top: 24px;
+    padding-left: 0;
+    &:before {
+      background: $primary;
+      content: "";
+      height: 4px;
+      left: 0;
+      position: absolute;
+      top: 12px;
+      width: 40px;
+    }
+  }
+}
+.node-list {
+  $self: &;
+  &__nodes {
+    padding-top: 0;
+  }
+  &--latest-content-list, &--section-feed, &--section-list, &--wufoo {
+    #{ $self }__header {
+      @include skin-typography($style: "header-2");
+      margin-bottom: 16px;
+      padding-top: 24px;
+      padding-left: 0;
+      &:before {
+        background: $primary;
+        content: "";
+        height: 4px;
+        left: 0;
+        position: absolute;
+        top: 12px;
+        width: 40px;
+      }
+    }
+  }
+  &--wufoo {
+    #{ $self }__body {
+      padding: 0;
+    }
+  }
+}
+.top-story {
+  &__row {
+    margin-bottom: 1rem;
+    .node {
+      &__body {
+        margin-top: 14px;
+      }
+      &__title {
+        font-size: 24px;
+      }
+      &__website-section-name {
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+.node-list {
+  $self: &;
+  &--section-feed {
+    #{ $self } {
+      &__node {
+        @include media-breakpoint-up(md) {
+          @include marko-web-node-list-border(border-bottom);
+          padding-bottom: 20px;
+          padding-top: 20px;
+        }
+      }
+    }
+  }
+}
+.section-feed-content-node {
+  &__content-teaser {
+    font-size: 1rem;
+  }
+}
+
+// Prevent Reveal Ad from causing CLS
+// @TODO determin if this should be moved to @parameter1/base-cms-marko-web
+#marko-web-reveal-ad-handler {
+  display: none;
+}
+.reveal-ad {
+  height: 298px;
+}
+.page {
+  &--content-event {
+    .page-dates {
+      &__content-starts,
+      &__content-ends {
+        @include skin-typography($style: "article-text", $link-style: "content-body");
+      }
+    }
+  }
+}
+.page-contact-details {
+  @include skin-typography($style: "article-text", $link-style: "content-body");
+}
+
+// @todo cleanup and port this.
+.input-group .input-group-prepend + input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.csmulti-legend {
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 500;
+  padding-top: 3px;
+}
+
+.csmulti-wrapper.border {
+  border-radius: $input-border-radius;
+  border-color: $input-border-color !important;
+}
+
+.csmulti-wrapper.border:hover {
+  border-color: $skin-input-hover-border-color !important;
+}
+
+.csmulti-inner {
+  label {
+    font-weight: inherit;
+  }
+}
+
+.input-group {
+  .input-group-text, .btn {
+    border-radius: $input-border-radius;
+  }
+
+  .input-group-prepend {
+    .input-group-text {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  input[id^=custom-select-write-in] {
+    border-radius: 0;
+  }
+
+  .input-group-append {
+    .btn {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
+// Override default container width
+$max-container-width: 1300px;
+@media (min-width: 1080px) {
+  .document-container {
+    max-width: $max-container-width;
+  }
+  .site-navbar {
+    &__container {
+      max-width: $max-container-width;
+    }
+  }
+}
+
+.sticky-top {
+  top: 1rem;
+}
+
+.site-menu {
+  $self: &;
+  top: $theme-site-navbar-logo-height-sm;
+  @media (min-width: $skin-desktop-menu-breakpoint) {
+    top: $theme-site-navbar-logo-height-sm + 26px;
+    z-index: 15000;
+  }
+}

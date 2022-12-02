@@ -1,0 +1,42 @@
+{
+  "<global-website-section-default-layout>": {
+    "template": "./default.marko",
+    "<head>": {},
+    "@sections <section>[]": {},
+    "@id": "number",
+    "@alias": "string",
+    "@name": "string",
+    "@page-node": "object"
+  },
+  "<global-website-section-feed-layout>": {
+    "template": "./feed.marko",
+    "@sections <section>[]": {},
+    "<before-name>": {},
+    "<after-name>": {},
+    "@id": "number",
+    "@alias": "string",
+    "@name": "string",
+    "@page-node": "object",
+    "@with-ads": "boolean"
+  },
+  "<global-website-section-upcoming-feed-layout>": {
+    "template": "./upcoming-feed.marko",
+    "@sections <section>[]": {},
+    "<before-name>": {},
+    "<after-name>": {},
+    "@id": "number",
+    "@alias": "string",
+    "@name": "string",
+    "@page-node": "object",
+    "@with-ads": "boolean"
+  },
+  "<global-website-section-home-layout>": {
+    "template": "./home.marko",
+    "<head>": {},
+    "@sections <section>[]": {},
+    "@id": "number",
+    "@alias": "string",
+    "@name": "string",
+    "@page-node": "object"
+  }
+}

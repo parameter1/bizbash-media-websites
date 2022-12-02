@@ -1,0 +1,38 @@
+.content-page-gate {
+  $self: &;
+
+  background-color: $gray-100;
+
+  #{ $self }__title {
+    @include skin-typography($style: "content-meter-cta");
+    color: $theme-page-title-color;
+    font-weight: $font-weight-bold;
+  }
+
+  #{ $self }__confirmation {
+    background-color: $gray-200;
+    font-weight: $font-weight-bold;
+    padding: map-get($spacers, 2);
+    margin-bottom: map-get($spacers, block);
+  }
+}
+
+.page-wrapper {
+  &__section {
+    &--user-form,
+    .content-page-gate {
+      .address-block {
+        > legend {
+          display: none;
+        }
+        &.border {
+          border: none !important;
+        }
+        &.px-3 {
+          padding-right: 0 !important;
+          padding-left: 0 !important;
+        }
+      }
+    }
+  }
+}

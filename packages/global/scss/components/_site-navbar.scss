@@ -1,0 +1,29 @@
+.site-header {
+  border-bottom: none;
+}
+
+.site-menu {
+  $self: &;
+  &__section {
+    &--user {
+      #{ $self }__link {
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+  &__item {
+    &--user-login {
+      #{ $self }__link {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.social-follow--site-menu {
+  padding-bottom: map-get($spacers, block);
+  border-bottom: solid 1px $gray-200;
+}
+.social-follow__section > .social-icon-link {
+  display: inline-block;
+}

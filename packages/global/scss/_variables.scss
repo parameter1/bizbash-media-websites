@@ -1,0 +1,142 @@
+// @font-face {
+//   font-family: "Fira Sans-fallback";
+//   size-adjust: 102.56%;
+//   ascent-override: 92%;
+//   src: local("Arial");
+// }
+
+// // Fonts
+// $skin-font-family-primary: "Fira Sans", "Fira Sans-fallback", sans-serif !default;
+// $skin-font-family-secondary: "Fira Sans", "Fira Sans-fallback", sans-serif !default;
+
+// @import url("https://img.forconstructionpros.com/files/base/bonhill/all/fonts/helvetica/74fc282ac1937b053f409b3b70eb1bb6.woff2?family-family=Helvetica+Rand1");
+// @import url("https://img.forconstructionpros.com/files/base/bonhill/all/fonts/helvetica/d72e521f27450184733d89aa499e531c.woff2?family=Helvetica+Rand2");
+// @import url("https://img.forconstructionpros.com/files/base/bonhill/all/fonts/helvetica/helvetica-47-light-condensed-587ebd7b5a6f6.woff2");
+// @import url("https://img.forconstructionpros.com/files/base/bonhill/all/fonts/helvetica/HelveticaNeue-75Bold.woff2?family=HelveticaNeue+75+Bold");
+// @import url("https://img.forconstructionpros.com/files/base/bonhill/all/fonts/helvetica/HelveticaNeue-Black.woff2?font-family=HelveticaNeue+Black?display=swap");
+// @import url("https://img.forconstructionpros.com/files/base/bonhill/all/fonts/helvetica/HelveticaNeue-BlackCond.woff2?family-family=helvetica-neue-97-black-condensed");
+// @import url("https://img.forconstructionpros.com/files/base/bonhill/all/fonts/helvetica/HelveticaNeue-Condensed.woff2?family=HelveticaNeue+Condesed");
+// @import url("https://img.forconstructionpros.com/files/base/bonhill/all/fonts/helvetica/HelveticaNeue-Medium.woff?family=HelveticaNeue+Medium");
+// @import url("https://img.forconstructionpros.com/files/base/bonhill/all/fonts/helvetica/HelveticaNeue-Roman.woff2?family=HelveticaNeue+Roman&display=swap");
+
+@font-face {
+  font-family: 'Helvetica 47 Light Condensed';
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://img.forconstructionpros.com/files/base/bonhill/all/fonts/helvetica/helvetica-47-light-condensed-587ebd7b5a6f6.woff2") format('woff2');
+  font-display: swap
+}
+
+@font-face {
+  font-family: "Helvetica 57 Condensed";
+  src: url("https://img.forconstructionpros.com/files/base/bonhill/all/fonts/helvetica/HelveticaNeue-Condensed.woff2") format("woff2"),
+}
+
+// Content Header Font Inclusion
+@font-face {
+  font-family: "Helvetica 97 Black Condensed";
+  src: url("https://img.forconstructionpros.com/files/base/bonhill/all/fonts/helvetica/HelveticaNeue-BlackCond.woff2") format("woff2"),
+}
+
+@font-face {
+  font-family: "Helvetica 95 Black";
+  src: url("https://img.forconstructionpros.com/files/base/bonhill/all/fonts/helvetica/HelveticaNeue-Black.woff2") format("woff2"),
+}
+
+@font-face {
+  font-family: "Helvetica 55 Roman";
+  src: url("https://img.forconstructionpros.com/files/base/bonhill/all/fonts/helvetica/HelveticaNeue-Roman.woff2") format("woff2");
+}
+
+$skin-font-family-primary: "Helvetica 57 Condensed", sans-serif !default;
+$skin-font-family-secondary: "Helvetica 47 Light Condensed", sans-serif !default;
+
+// $theme-item-title-font-family: "HelveticaNeue 97 Black Condensed", sans-serif;
+$theme-content-body-font: "Helvetica 55 Roman", sans-serif;
+$black: #000;
+$body-color: $black;
+
+// Override monorails typography font families
+$theme-heading-font-family: "Helvetica 97 Black Condensed", sans-serif;
+$theme-page-deck-line-height-sm: 1.2;
+$theme-page-deck-line-height: 1.2;
+
+$typography: (
+  "header-1": (
+    "color": $black,
+    "font-family": $theme-heading-font-family,
+  ),
+  "header-1.5": (
+    "color": $black,
+    "font-family": $theme-heading-font-family,
+  ),
+  "header-2": (
+    "color": $black,
+    "font-family": $theme-heading-font-family,
+    "text-transform": uppercase,
+  ),
+  "header-3": (
+    "color": $black,
+    "font-family": $theme-heading-font-family,
+  ),
+  "article-text": (
+    "color": $black,
+    "font-family": $theme-content-body-font,
+    "line-height": 1.4,
+    "font-size": 18px,
+  ),
+  "small-body-text": (
+    "color": $black,
+    "font-family": $theme-content-body-font,
+    "line-height": 1.125,
+    "font-size": 14px,
+  ),
+  "teaser-text-1": (
+    "color": $black,
+    "line-height": 1.125,
+    "font-size": 16px,
+  ),
+  "slug-medium": (
+    "color": $primary,
+    // "font-family": $theme-item-title-font-family,
+    "line-height": 1.1125,
+    "font-size": 14px,
+  ),
+  "section-header": (
+    "color": $black,
+    // "font-family": $theme-item-title-font-family,
+  ),
+  "section-header-small__header": (
+    "color": $black,
+    // "font-family": $theme-item-title-font-family,
+  )
+  // DROP DOWN MENU PROPs
+  // "menu-item-primary": (
+  //   "font-family": $theme-item-title-font-family,
+  // ),
+  // "menu-item-secondary": (
+  //   "font-size": 50px,
+  //   "font-family": $theme-item-title-font-family,
+  // ),
+);
+
+// Only set to override the 700px max.  Need to figure out how to remove this all together.
+$skin-content-body-max-width: 1000px;
+
+// Navbar
+$navbarStyle: "navbar-c" !default;
+$theme-site-navbar-primary-type: light !default;
+$theme-site-navbar-primary-font-size: 15px !default;
+$theme-site-navbar-primary-link-color: #3f4043 !default;
+$theme-site-navbar-primary-link-active-color: $primary !default;
+$theme-site-navbar-primary-link-hover-color: $primary !default;
+$theme-site-navbar-primary-bg-color: #f0f1f2 !default;
+$theme-site-navbar-logo-height: 30px !default;
+$theme-site-navbar-secondary-font-size: 16px !default;
+$theme-card-header-text-transform: uppercase !default;
+
+// Ads
+$leaderboard-min-height-mobile: 50px !default;
+$leaderboard-min-height-desktop: 250px !default;
+
+// $skin-content-body-max-width: auto;
