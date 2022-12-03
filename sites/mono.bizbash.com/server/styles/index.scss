@@ -6,6 +6,183 @@ $theme-site-header-breakpoints: (
 );
 
 // Colors
-$primary: #dc0d23;
+$primary: #0072bb;
+
+// Fonts
+@font-face {
+  font-family: oswald-fallback;
+  /* stylelint-disable-next-line */
+  size-adjust: 81.91000000000001%;
+  /* stylelint-disable-next-line */
+  ascent-override: 154%;
+  src: local("Arial");
+}
+
+$skin-font-family-primary: "Oswald", oswald-fallback, sans-serif !default;
+$skin-font-family-secondary: "Oswald", oswald-fallback, sans-serif !default;
+
+$theme-content-body-font: $skin-font-family-primary;
+$black: #1f2937;
+$body-color: $black;
+
+// Override monorails typography font families
+$theme-heading-font-family: $skin-font-family-primary;
+$theme-page-deck-line-height-sm: 1.2;
+$theme-page-deck-line-height: 1.2;
+
+$typography: (
+  "header-1": (
+    "color": $black,
+    "font-family": $theme-heading-font-family,
+    "font-weight": 600,
+  ),
+  "header-1.5": (
+    "color": $black,
+    "font-family": $theme-heading-font-family,
+    "font-weight": 600,
+  ),
+  "header-2": (
+    "color": $black,
+    "font-family": $theme-heading-font-family,
+    "text-transform": uppercase,
+    "font-weight": 600,
+  ),
+  "header-3": (
+    "color": $black,
+    "font-family": $theme-heading-font-family,
+    "font-weight": 600,
+  ),
+  "article-text": (
+    "color": $black,
+    "font-family": $theme-content-body-font,
+    "line-height": 1.4,
+    "font-size": 18px,
+  ),
+  "small-body-text": (
+    "color": $black,
+    "font-family": $theme-content-body-font,
+    "line-height": 1.125,
+    "font-size": 14px,
+  ),
+  "teaser-text-1": (
+    "color": $black,
+    "line-height": 1.125,
+    "font-size": 16px,
+    "font-weight": 300,
+  ),
+  "slug-medium": (
+    "color": $primary,
+    "line-height": 1.1125,
+    "font-size": 13px,
+    "font-weight": 500,
+  ),
+  "section-header": (
+    "color": $black,
+  ),
+  "section-header-small__header": (
+    "color": $black,
+  )
+);
+
+// Only set to override the 700px max.  Need to figure out how to remove this all together.
+$skin-content-body-max-width: 1000px;
+//.025em
+// .875rem
+
+$theme-site-navbar-secondary-font-weight: 400;
+$theme-site-navbar-secondary-bg-color: $primary;
+$theme-site-navbar-secondary-link-color: #f8fafc;
+$theme-site-navbar-secondary-link-hover-color: #f8fafc;
+$theme-site-navbar-secondary-link-active-color: #f8fafc;
+$theme-site-navbar-primary-bg-color: $primary;
+$theme-site-navbar-primary-link-color: $black;
+$theme-site-navbar-primary-link-hover-color: $primary;
+$theme-site-navbar-primary-link-active-color: $primary;
+$theme-site-navbar-primary-link-text-transform: "uppercase";
+$theme-site-navbar-primary-font-size: 16px;
+$theme-site-navbar-primary-font-weight: 600;
+
+$theme-page-deck-color: #6b7280;
 
 @import "../../node_modules/@bizbash-media/package-global/scss/core";
+
+.site-navbar {
+  $self: &;
+  &__logo {
+    height: 45px;
+  }
+  &--primary {
+    background-color: #e2e8f0;
+    border-top: 1px solid #64748b;
+    border-bottom: 1px solid #c4c6cb;
+    .site-navbar {
+      &__link {
+        text-transform: uppercase;
+      }
+    }
+  }
+  &--secondary {
+    .site-navbar {
+      &__items {
+        font-size: .875rem;
+        font-weight: 400;
+      }
+      &__link {
+        letter-spacing: .025em;
+      }
+    }
+  }
+  &--top {
+    #{ $self } {
+      &__right {
+        .marko-web-icon svg {
+          fill: #f8fafc;
+        }
+        .btn,
+        #{ $self }__toggler {
+          background-color: $primary;
+        }
+      }
+    }
+  }
+  &__items {
+    &--primary {
+      justify-content: space-between;
+    }
+  }
+}
+
+.page-wrapper {
+  &__deck {
+    max-width: 900px;
+    font-weight: 300;
+  }
+  &__content-name {
+    max-width: 1000px;
+  }
+}
+
+.node-list {
+  &--section-list {
+    .node-list {
+      &__header a {
+        color: $black;
+      }
+    }
+  }
+}
+
+.node-text {
+  &--teaser a {
+    color: $theme-page-deck-color;
+  }
+}
+
+.ad-container {
+  &--inter-block {
+    @media (min-width: 1080px) {
+      margin-right: 0;
+      margin-left: 0;
+    }
+  }
+}
