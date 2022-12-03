@@ -1,8 +1,8 @@
 {
-  "name": "@bizbash-media/investmentnews.com",
+  "name": "@bizbash-media/mono.bizbash.com",
   "version": "0.1.0",
   "author": "Brandon Krigbaum <brandon@parameter1.com>",
-  "repository": "https://github.com/parameter1/bizbash-media-websites/tree/master/sites/investmentnews.com",
+  "repository": "https://github.com/parameter1/bizbash-media-websites/tree/master/sites/bizbash.com",
   "license": "MIT",
   "private": true,
   "scripts": {
