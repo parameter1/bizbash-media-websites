@@ -2487,6 +2487,21 @@
     graphql "^14.7.0"
     graphql-tag "^2.12.5"
 
+"@parameter1/base-cms-marko-web-theme-monorail-magazine@^3.16.2":
+  version "3.16.2"
+  resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-theme-monorail-magazine/-/base-cms-marko-web-theme-monorail-magazine-3.16.2.tgz#25d4ea8fec399e9fa5fbc53bb2d148e4ff39a873"
+  integrity sha512-9873/WuX2ITJrA8/7rBxMyScZRG3P2/W4QkfXZ4h8ifzlLUmCmS364938wWeN4V+MfHuQN6xQ/sHICguDQD8Dg==
+  dependencies:
+    "@parameter1/base-cms-marko-core" "^3.3.1"
+    "@parameter1/base-cms-marko-web" "^3.14.0"
+    "@parameter1/base-cms-marko-web-gtm" "^3.7.3"
+    "@parameter1/base-cms-object-path" "^3.0.0"
+    "@parameter1/base-cms-utils" "^3.0.0"
+    "@parameter1/base-cms-web-common" "^3.3.1"
+    graphql "^14.7.0"
+    graphql-tag "^2.12.5"
+    object-path "^0.11.8"
+
 "@parameter1/base-cms-marko-web-theme-monorail@^3.16.4":
   version "3.16.4"
   resolved "https://registry.yarnpkg.com/@parameter1/base-cms-marko-web-theme-monorail/-/base-cms-marko-web-theme-monorail-3.16.4.tgz#b97e302bc72afc71ad83b3d76c3e5dc8a4a31253"
