@@ -17,9 +17,9 @@ $ const rightRailHeader = defaultValue(input.rightRailHeader, "Latest News");
 
 $ const promise = websiteSectionContentLoader(apollo, {
   sectionId: id,
-  featuredParams: loader.featuredParams,
+  featuredParams: { ...loader.featuredParams, limit: 5 },
   standardParams: loader.standardParams,
-  withStandardQuery: defaultValue(loader.withStandardQuery, true),
+  withStandardQuery: false, // defaultValue(loader.withStandardQuery, true),
 });
 <marko-web-resolve|{ resolved: sectionContent }| promise=promise>
   $ const { featured, standard } = sectionContent;
@@ -80,34 +80,13 @@ $ const promise = websiteSectionContentLoader(apollo, {
                     />
                   </marko-web-element>
                 </marko-web-element>
-                <!-- <if(cardNodes.length)>
-                  <marko-web-block name="content-card-deck">
-                    <marko-web-element block-name="content-card-deck" name="header">
-                      <marko-web-element block-name="content-card-deck" name="header-left">
-                        <marko-web-element block-name="content-card-deck" name="title">
-                          ${i18n("Featured")}
-                        </marko-web-element>
-                      </marko-web-element>
-                      <marko-web-element block-name="content-card-deck" name="header-right" />
-                    </marko-web-element>
-
-                    <theme-content-card-deck-col-flow
-                      cols=2
-                      nodes=cardNodes
-                      modifiers=["content-card-deck"]
-                    >
-                      <@node modifiers=["content-card-deck"]>
-                        <@image width=330 ar="3:2" />
-                      </@node>
-                    </theme-content-card-deck-col-flow>
-                  </marko-web-block>
-                </if> -->
               </div>
               <div class="col-lg-4 page-rail">
-                <theme-latest-content-list-block nodes=standard.nodes title="" >
+                $ const featuredNodes = featured.nodes.slice(1, 5);
+                <theme-latest-content-list-block nodes=featuredNodes title="" >
                   <@native-x indexes=[0] name="default" aliases=aliases />
+                  <@node with-section=true with-dates=false />>
                 </theme-latest-content-list-block>
-                <!-- <global-video-player /> -->
               </div>
             </div>
           </@section>
