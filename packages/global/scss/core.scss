@@ -540,19 +540,6 @@ label {
   }
 }
 
-// Override default container width
-$max-container-width: 1300px;
-@media (min-width: 1080px) {
-  .document-container {
-    max-width: $max-container-width;
-  }
-  .site-navbar {
-    &__container {
-      max-width: $max-container-width;
-    }
-  }
-}
-
 .sticky-top {
   top: 1rem;
 }
