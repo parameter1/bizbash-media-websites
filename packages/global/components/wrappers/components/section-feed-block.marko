@@ -5,6 +5,7 @@
 >
   <@query-params ...input.queryParams limit=input.limit skip=input.skip/>
   <@node-list innerJustified=false ...input.nodeList />
+  <@node with-section=true with-dates=false />
   <if(input.withAds)>
     <@after>
       <theme-gam-define-display-ad
