@@ -18,10 +18,17 @@ $primary: #0072bb;
   src: local("Arial");
 }
 
+@font-face {
+  font-family: open-sans-fallback;
+  size-adjust: 105.42999999999994%;
+  ascent-override: 105%;
+  src: local("Arial");
+}
+
 $skin-font-family-primary: "Oswald", oswald-fallback, sans-serif !default;
 $skin-font-family-secondary: "Oswald", oswald-fallback, sans-serif !default;
 
-$theme-content-body-font: $skin-font-family-primary;
+$theme-content-body-font: "Open Sans", open-sans-fallback, sans-serif;
 $black: #1f2937;
 $body-color: $black;
 
@@ -55,14 +62,12 @@ $typography: (
   "article-text": (
     "color": $black,
     "font-family": $theme-content-body-font,
-    "line-height": 1.4,
+    "line-height": 1.875,
     "font-size": 18px,
   ),
   "small-body-text": (
     "color": $black,
     "font-family": $theme-content-body-font,
-    "line-height": 1.125,
-    "font-size": 14px,
   ),
   "teaser-text-1": (
     "color": $black,
