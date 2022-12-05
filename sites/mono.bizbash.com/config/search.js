@@ -1,4 +1,5 @@
 module.exports = {
+  contentTypes: ['Article', 'MediaGallery', 'Podcast', 'Video', 'Webinar', 'Whitepaper'],
   assignedToWebsiteSectionIds: [
     60024,
     62932,
