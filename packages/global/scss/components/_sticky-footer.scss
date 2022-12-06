@@ -1,0 +1,72 @@
+$sticky-footer-background-color:      $primary !default;
+
+$sticky-footer-container-height:      40px !default;
+$sticky-footer-container-padding:     .5rem !default;
+$sticky-footer-container-z-index:     100000 !default;
+$sticky-footer-container-transition:  visibility linear 250ms, opacity ease 250ms, padding ease 250ms !default;
+$sticky-footer-container-width:       100% !default;
+
+$sticky-footer-close-color:           #fff !default;
+$sticky-footer-close-font-size:       2.25rem !default;
+$sticky-footer-close-size:            2.25rem !default;
+$sticky-footer-close-font-weight:     400 !default;
+$sticky-footer-close-padding:         .375rem .75rem !default;
+$sticky-footer-close-z-index:         $sticky-footer-container-z-index + 1 !default;
+
+
+.sticky-footer {
+  $self: &;
+
+  &__container {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $sticky-footer-container-z-index;
+    width: $sticky-footer-container-width;
+    height: $sticky-footer-container-height;
+    padding: $sticky-footer-container-padding;
+    text-align: center;
+    visibility: hidden;
+    background-color: $primary;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    opacity: 0;
+    transition: $sticky-footer-container-transition;
+  }
+  &__items {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 0;
+    margin-bottom: 1rem;
+    list-style: none;
+  }
+  &--visible {
+    // padding-top: calc(#{$sticky-footer-container-height} + #{$sticky-footer-container-padding} + #{$sticky-footer-container-padding});
+    padding-top: $sticky-footer-container-height;
+
+    #{ $self } {
+      &__container {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: $sticky-footer-background-color;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .nav-link {
+    color: $white;
+  }
+}
