@@ -240,7 +240,8 @@ $theme-page-deck-color: #6b7280;
 
 .site-footer {
   &__container {
-    &--secondary, &--brand-logos {
+    &--secondary,
+    &--brand-logos {
       background-color: $primary;
     }
     &--primary {
