@@ -34,6 +34,9 @@
   "<global-site-footer>": {
     "template": "./site-footer.marko"
   },
+  "<global-sticky-footer>": {
+    "template": "./sticky-footer.marko"
+  },
   "<global-content-meter-track>": {
     "template": "./content-meter-track.marko"
   }
