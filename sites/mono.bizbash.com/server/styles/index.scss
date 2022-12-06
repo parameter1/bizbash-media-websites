@@ -158,6 +158,16 @@ $theme-page-deck-color: #6b7280;
       justify-content: space-between;
     }
   }
+  &__item {
+    &--gold {
+      #{ $self } {
+        &__link {
+          font-weight: 700;
+          color: #ffd700;
+        }
+      }
+    }
+  }
 }
 
 .magazine-issues {
