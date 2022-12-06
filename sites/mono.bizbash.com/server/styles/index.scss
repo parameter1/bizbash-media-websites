@@ -160,6 +160,17 @@ $theme-page-deck-color: #6b7280;
   }
 }
 
+.magazine-issues {
+  margin-right: 0;
+  margin-left: 0;
+  &__wrapper {
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
 .page-wrapper {
   &__deck {
     max-width: 900px;

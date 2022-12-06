@@ -5,7 +5,7 @@ import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 
 import websiteSectionContentLoader from "@bizbash-media/package-global/loaders/website-section-content";
 
-$ const { config } = out.global;
+$ const { config, site } = out.global;
 
 $ const loader = getAsObject(input, "loader");
 $ const { id, alias, name, pageNode } = input;
@@ -90,6 +90,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
               </div>
             </div>
           </@section>
+
           <@section|{ aliases }| modifiers=["first-sm"]>
             <theme-gam-define-display-ad
               name="leaderboard"
@@ -98,9 +99,17 @@ $ const promise = websiteSectionContentLoader(apollo, {
               modifiers=["inter-block"]
             />
           </@section>
+
           <@section>
             <theme-section-list-deck-block aliases=["production-strategy", "catering-design", "event-tech-virtual"] />
           </@section>
+
+          $ const publicationIds = site.get("magazine.publicationIds");
+          <if(publicationIds.length)>
+            <@section>
+              <theme-magazine-issues-block publication-id=publicationIds[0] />
+            </@section>
+          </if>
           <!-- <@section|{ aliases }|>
             <global-section-feed-wrapper aliases=aliases with-pagination=false>
               <@header>${i18n("More from")} ${config.siteName()}</@header>
