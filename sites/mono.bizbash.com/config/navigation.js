@@ -244,6 +244,14 @@ module.exports = {
       items: utilities,
     },
   },
+  'sticky-footer': {
+    items: [
+      { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Subscribe', target: '_blank' },
+      { href: '/venue-directory', label: 'Find a Venue' },
+      { href: '/supplier-directory', label: 'Find a Supplier' },
+      { href: '/page/privacy-policy', label: 'Privacy Policy' },
+    ],
+  },
   footer: {
     col1: {
       label: 'Topics',
@@ -254,38 +262,6 @@ module.exports = {
       label: 'Resources',
       items: resources,
     },
-    // Original Footer Navigation
-    // col1: {
-    //   label: 'Business Insights',
-    //   items: businessInsights,
-    // },
-    // col2: {
-    //   label: 'Research & Development',
-    //   colspan: '3',
-    //   items: researchDevelopment,
-    // },
-    // col3: {
-    //   label: 'Diagnostic Technologies',
-    //   colspan: '3',
-    //   items: diagnosticTechnologies,
-    // },
-    // col4: {
-    //   label: 'Diseases',
-    //   items: diseases,
-    // },
-    // col5: {
-    //   label: 'Resources',
-    //   items: resources,
-    // },
-
-
-    // col3: {
-    //   label: 'More',
-    //   items: [
-    //     { href: '#', label: 'TBD' },
-    //     { href: '#', label: 'TBD' },
-    //   ],
-    // },
     items: [
       privacyPolicy,
       { href: '/page/contact-us', label: 'Contact Us' },
