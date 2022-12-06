@@ -18,7 +18,7 @@ const resources = [
   { href: 'https://www.bizbashlive.com/EEA21', label: 'Awards', target: '_blank' },
   { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise', target: '_blank' },
   { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Subscribe', target: '_blank' },
-  { href: '/hubilo', label: 'BizBash x Hubilo', modifiers: ['white'] },
+  { href: '/hubilo', label: 'BizBash x Hubilo', modifiers: ['gold'] },
 ];
 
 const utilities = [
