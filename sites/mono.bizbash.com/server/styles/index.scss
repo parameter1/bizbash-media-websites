@@ -221,3 +221,28 @@ $theme-page-deck-color: #6b7280;
     }
   }
 }
+
+// .marko-web-gam-fixed-ad-bottom {
+//   &__container {
+//     bottom: 40px;
+//   }
+// }
+
+.site-footer {
+  &__container {
+    &--secondary, &--brand-logos {
+      background-color: $primary;
+    }
+    &--primary {
+      background-color: $black;
+    }
+  }
+  &__brand {
+    margin-bottom: 0;
+  }
+  .site-footer-newsletter {
+    .btn-primary {
+      background-color: #d4af37;
+    }
+  }
+}
