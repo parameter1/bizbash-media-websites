@@ -54,6 +54,13 @@ module.exports = ({
         { viewport: [980, 0], size: [300, 250] },
         { viewport: [0, 0], size: [] },
       ],
+    })
+    .setTemplate('RAIL', {
+      size: [[300, 600]],
+      sizeMapping: [
+        { viewport: [980, 0], size: [[300, 600]] },
+        { viewport: [0, 0], size: [] },
+      ],
     });
 
   return config;

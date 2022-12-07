@@ -15,6 +15,9 @@ config.setAliasAdUnits('default', [
   { name: 'rotation', templateName: 'ROTATION', path: 'rotation' },
   { name: 'inline-content-mobile', templateName: 'INLINE-CONTENT-MOBILE', path: 'rotation' },
   { name: 'inline-content-desktop', templateName: 'INLINE-CONTENT-DESKTOP', path: 'rotation' },
+  { name: 'rail', templateName: 'RAIL', path: 'default/rail1' },
+  { name: 'rail1', templateName: 'RAIL', path: 'default/rail1' },
+  { name: 'rail2', templateName: 'RAIL', path: 'default/rail2' },
   // Below based on enableRevealAd
   // { name: 'reskin', path: 'reskin' },
 ]);
@@ -26,6 +29,9 @@ aliases.forEach(alias => config.setAliasAdUnits(alias, [
   { name: 'rotation', templateName: 'ROTATION', path: `${alias}-rotation` },
   { name: 'inline-content-mobile', templateName: 'INLINE-CONTENT-MOBILE', path: `${alias}-rotation` },
   { name: 'inline-content-desktop', templateName: 'INLINE-CONTENT-DESKTOP', path: `${alias}-rotation` },
+  { name: 'rail', templateName: 'RAIL', path: `${alias}/rail1` },
+  { name: 'rail1', templateName: 'RAIL', path: `${alias}/rail1` },
+  { name: 'rail2', templateName: 'RAIL', path: `${alias}/rail2` },
 ]));
 
 
