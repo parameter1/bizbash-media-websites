@@ -54,28 +54,18 @@ const eventTechVirtual = [
   { href: '/event-tech-virtual/strategy', label: 'Strategy' },
   { href: '/event-tech-virtual/virtual-entertainment-gifts', label: 'Virtual Entertainment & Gifts' },
 ];
-const industry = [
-  { href: '/industry/adviser-moves', label: 'Adviser Moves' },
-  { href: '/industry/broker-dealers', label: 'Broker-Dealers' },
-  { href: '/industry/clearing-firms', label: 'Clearing Firms' },
-  { href: '/industry/custodians', label: 'Custodians' },
-  { href: '/industry/earnings', label: 'Earnings' },
-  { href: '/industry/independent-broker-dealers', label: 'Independent Broker-Dealers' },
-  { href: '/industry/mergers-acquisitions', label: 'Mergers & Acquisitions' },
-  { href: '/industry/regional-brokerages', label: 'Regional Brokerages' },
-  { href: '/industry/registered-investment-advisers', label: 'Registered Investment Advisers' },
-  { href: '/industry/wirehouses', label: 'Wirehouses' },
+const venuesDestinations = [
+  { href: '/venues-destinations/canada', label: 'Canada' },
+  { href: '/venues-destinations/united-states', label: 'United States' },
+  { href: '/venues-destinations/global', label: 'Global' },
 ];
-const fintech = [
-  { href: '/fintech/cybersecurity', label: 'Cybersecurity' },
-  { href: '/fintech/hardware', label: 'Hardware' },
-  { href: '/fintech/online', label: 'Online' },
-  { href: '/fintech/social-media', label: 'Social Media' },
-  { href: '/fintech/software', label: 'Software' },
-];
-const regulationLegislation = [
-  { href: '/regulation-and-legislation/regulation', label: 'Regulation' },
-  { href: '/regulation-and-legislation/legislation', label: 'Legislation' },
+const meetingsTradeShows = [
+  { href: '/meetings-trade-shows/meetings', label: 'Meetings' },
+  { href: '/meetings-trade-shows/strategy', label: 'Strategy' },
+  { href: '/meetings-trade-shows/trade-shows', label: 'Trade Shows' },
+  { href: '/meetings-trade-shows/people', label: 'People' },
+  { href: '/meetings-trade-shows/places', label: 'Places' },
+  { href: '/meetings-trade-shows/trends', label: 'Trends' },
 ];
 
 const mobileMenu = {
@@ -177,27 +167,19 @@ module.exports = {
       },
     },
     {
-      when: ['/industry'],
+      when: ['/venues-destinations'],
       secondary: { items: resources },
       tertiary: { items: [] },
       primary: {
-        items: industry,
+        items: venuesDestinations,
       },
     },
     {
-      when: ['/fintech'],
+      when: ['/meetings-trade-shows'],
       secondary: { items: resources },
       tertiary: { items: [] },
       primary: {
-        items: fintech,
-      },
-    },
-    {
-      when: ['/regulation-legislation'],
-      secondary: { items: resources },
-      tertiary: { items: [] },
-      primary: {
-        items: regulationLegislation,
+        items: meetingsTradeShows,
       },
     },
   ],
