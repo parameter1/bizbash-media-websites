@@ -1,4 +1,4 @@
-const subscribe = require('./subscribe');
+// const subscribe = require('./subscribe');
 const privacyPolicy = require('./privacy-policy');
 
 const topics = [
@@ -74,12 +74,11 @@ const mobileMenu = {
 };
 
 module.exports = {
-  type: 'navbar-c',
   promos: [
     {
-      title: subscribe.label,
-      callToAction: subscribe.label,
-      link: subscribe.href,
+      title: 'BizBash x Hubilo',
+      callToAction: 'BizBash x Hubilo',
+      link: { href: '/hubilo', label: 'BizBash x Hubilo', modifiers: ['gold'] },
     },
   ],
   user: {
