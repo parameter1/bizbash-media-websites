@@ -140,6 +140,22 @@ $theme-page-deck-color: #6b7280;
   }
   &--top {
     #{ $self } {
+      &__left {
+        padding-left: 0;
+        @media (max-width: map-get($theme-site-header-breakpoints, small-logo)) {
+          display: none;
+        }
+      }
+      &__center {
+        display: flex;
+        @media (min-width: map-get($theme-site-header-breakpoints, small-logo)) {
+          justify-content: center;
+        }
+      }
+      &__center.col-lg-6 {
+        justify-content: flex-start;
+        padding-left: 0;
+      }
       &__right {
         .marko-web-icon svg {
           fill: #f8fafc;
@@ -150,9 +166,35 @@ $theme-page-deck-color: #6b7280;
         }
       }
       &__container {
-        height: 75px;
+        @media (min-width: map-get($theme-site-header-breakpoints, small-logo)) {
+          height: 75px;
+        }
       }
     }
+    // #{ $self } {
+    //   &__container {
+    //     height: $theme-site-navbar-logo-height + 30px;
+    //     @media (max-width: map-get($theme-site-header-breakpoints, small-logo)) {
+    //       height: $theme-site-navbar-logo-height-sm + 20px;
+    //     }
+    //   }
+    //   &__right {
+    //     display: flex;
+    //     justify-content: flex-end;
+    //     @media (min-width: map-get($theme-site-header-breakpoints, hide-primary)) {
+    //       padding-right: 0;
+    //     }
+    //     .btn,
+    //     #{ $self }__toggler {
+    //       width: 40px;
+    //       height: 40px;
+    //       padding: 0;
+    //       margin: 0 0 0 12px;
+    //       font-size: 1rem;
+    //       background-color: $gray-100;
+    //       border-radius: 4px;
+    //     }
+    //   }
   }
   &__items {
     &--primary {
