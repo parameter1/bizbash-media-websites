@@ -22,12 +22,12 @@ module.exports = {
   },
   logos: {
     navbar: {
-      src: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-no-tagline.png?h=45&auto=format,compress',
+      src: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-no-tagline.png?h=60&auto=format,compress',
       srcset: [
-        'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-no-tagline.png?h=45&auto=format,compress&dpr=2 2x',
+        'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-no-tagline.png?h=60&auto=format,compress&dpr=2 2x',
       ],
-      width: '149',
-      height: '45',
+      width: '198',
+      height: '60',
     },
     footer: {
       src: 'https://img.bizbash.com/files/base/bizbash/bzb/image/static/logo/bzb-black-white-no-tagline.png?h=60&auto=format,compress',
