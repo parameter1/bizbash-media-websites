@@ -149,6 +149,9 @@ $theme-page-deck-color: #6b7280;
           background-color: $primary;
         }
       }
+      &__container {
+        height: 75px;
+      }
     }
   }
   &__items {
