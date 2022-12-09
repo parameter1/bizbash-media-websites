@@ -163,17 +163,17 @@ $theme-page-deck-color: #6b7280;
     &--gold {
       #{ $self } {
         &__link {
-          color: #ffd700;
           font-weight: 700;
+          color: #ffd700;
         }
       }
     }
   }
   .subscribe-box {
     &--call-to-action a {
-      color: #ffd700;
-      font-weight: 600;
       margin-left: 10px;
+      font-weight: 600;
+      color: #ffd700;
     }
   }
 }
