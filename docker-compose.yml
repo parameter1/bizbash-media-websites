@@ -80,7 +80,7 @@ services:
   biz:
     <<: *node
     <<: *site-cmd
-    working_dir: /root/sites/mono.bizbash.com
+    working_dir: /root/sites/old.bizbash.com
     environment:
       <<: *env
       <<: *env-tauron
