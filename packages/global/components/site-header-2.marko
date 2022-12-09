@@ -29,7 +29,6 @@ $ const headerColClass = promos ? `col-lg-${4 - promos.slice(1).length}` : "col-
             <div class="col">
               $ const promoSrc = get(promo, "image.src");
               $ const promoSrcSet = getAsArray(promo, "image.srcset");
-              $ console.log(promoSrc);
               <marko-web-block class="subscribe-box">
                 <if(promoSrc)>
                   <a href=promo.link title=promo.title class="subscribe-box--cover-image">
