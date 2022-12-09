@@ -25,17 +25,14 @@
     "<below-container>": {},
     "<foot>": {}
   },
-  "<global-site-header-c>": {
-    "template": "./site-header-c.marko"
-  },
   "<global-site-menu>": {
     "template": "./site-menu/index.marko"
   },
   "<global-site-footer>": {
     "template": "./site-footer.marko"
   },
-  "<global-site-header-2>": {
-    "template": "./site-header-2.marko"
+  "<global-site-header>": {
+    "template": "./site-header.marko"
   },
   "<global-sticky-footer>": {
     "template": "./sticky-footer.marko"
