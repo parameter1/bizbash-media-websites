@@ -169,6 +169,13 @@ $theme-page-deck-color: #6b7280;
       }
     }
   }
+  .subscribe-box {
+    &--call-to-action a {
+      color: #ffd700;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+  }
 }
 
 .magazine-issues {
