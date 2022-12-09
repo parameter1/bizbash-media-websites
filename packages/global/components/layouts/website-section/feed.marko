@@ -55,15 +55,24 @@ $ const perPage = 12;
     </if>
 
     <global-section-feed-wrapper aliases=aliases alias=alias>
-      <!-- <@rail>
-        <global-latest-opinion-list-block
-          title="Opinion"
-          alias="opinion"
-          class="sticky-top"
-        />
-      </@rail> -->
       <@rail>
+        <theme-gam-define-display-ad
+          name="rail1"
+          position="content_page"
+          aliases=aliases
+          modifiers=["max-width-300", "center", "margin-auto-x"]
+          class="mb-block"
+        />
         <global-most-popular-list-block class="sticky-top" />
+      </@rail>
+      <@rail>
+        <theme-gam-define-display-ad
+          name="rail2"
+          position="content_page"
+          aliases=aliases
+          modifiers=["max-width-300", "center", "margin-auto-x"]
+          class="mb-block"
+        />
       </@rail>
     </global-section-feed-wrapper>
   </@section>
