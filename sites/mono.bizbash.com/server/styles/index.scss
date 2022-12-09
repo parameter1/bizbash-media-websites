@@ -96,7 +96,8 @@ $typography: (
 $skin-content-body-max-width: 1000px;
 //.025em
 // .875rem
-
+$theme-site-navbar-logo-height-sm: 45px;
+$theme-site-navbar-logo-height: 60px;
 $theme-site-navbar-secondary-font-weight: 400;
 $theme-site-navbar-secondary-bg-color: $primary;
 $theme-site-navbar-secondary-link-color: #f8fafc;
@@ -116,9 +117,6 @@ $theme-page-deck-color: #6b7280;
 
 .site-navbar {
   $self: &;
-  &__logo {
-    height: 45px;
-  }
   &--primary {
     background-color: #e2e8f0;
     border-top: 1px solid #64748b;
