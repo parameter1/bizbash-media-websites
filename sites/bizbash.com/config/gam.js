@@ -22,6 +22,7 @@ config.setAliasAdUnits('default', [
   { name: 'rail2', templateName: 'RAIL', path: 'default/rail2' },
   // Below based on enableRevealAd
   { name: 'reskin', path: 'default/reskin' },
+  { name: 'wa', path: 'default/wa' },
 ]);
 
 const aliases = [];

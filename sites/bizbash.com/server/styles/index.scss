@@ -115,6 +115,10 @@ $theme-page-deck-color: #6b7280;
 
 @import "../../node_modules/@bizbash-media/package-global/scss/core";
 
+.document-container {
+  background-color: transparent;
+}
+
 .site-navbar {
   $self: &;
   &--primary {
