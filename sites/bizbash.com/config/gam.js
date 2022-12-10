@@ -2,6 +2,8 @@ const configureGAM = require('@bizbash-media/package-global/config/gam');
 
 const config = configureGAM({ basePath: '' });
 
+config.enableRevealAd = true;
+
 config.lazyLoad = {
   enabled: true, // set to true to enable lazy loading
   fetchMarginPercent: 100, // fetch ad when one viewport away
@@ -19,7 +21,7 @@ config.setAliasAdUnits('default', [
   { name: 'rail1', templateName: 'RAIL', path: 'default/rail1' },
   { name: 'rail2', templateName: 'RAIL', path: 'default/rail2' },
   // Below based on enableRevealAd
-  // { name: 'reskin', path: 'reskin' },
+  { name: 'reskin', path: 'default/reskin' },
 ]);
 
 const aliases = [];
@@ -32,6 +34,7 @@ aliases.forEach(alias => config.setAliasAdUnits(alias, [
   { name: 'rail', templateName: 'RAIL', path: `${alias}/rail1` },
   { name: 'rail1', templateName: 'RAIL', path: `${alias}/rail1` },
   { name: 'rail2', templateName: 'RAIL', path: `${alias}/rail2` },
+  { name: 'reskin', path: `${alias}/reskin` },
 ]));
 
 
