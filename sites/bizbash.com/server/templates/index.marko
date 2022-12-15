@@ -119,12 +119,13 @@ $ const promise = websiteSectionContentLoader(apollo, {
             <theme-section-forbes-block alias="catering-design" query-params={ excludeContentIds: ids } reverse=true />
           </@section>
 
-          $ const publicationIds = site.get("magazine.publicationIds");
-          <if(publicationIds.length)>
-            <@section>
-              <theme-magazine-issues-block publication-id=publicationIds[0] />
-            </@section>
-          </if>
+          <@section>
+            <theme-section-forbes-block alias="production-strategy" query-params={ excludeContentIds: ids } />
+          </@section>
+
+          <@section>
+            <theme-section-card-deck-block alias="on-demand/webinars-virtual-events" />
+          </@section>
 
           <@section>
             <theme-section-forbes-block alias="event-tech-virtual" query-params={ excludeContentIds: ids } />
@@ -134,6 +135,16 @@ $ const promise = websiteSectionContentLoader(apollo, {
             <theme-section-forbes-block alias="venues-destinations" query-params={ excludeContentIds: ids } reverse=true />
           </@section>
 
+          $ const publicationIds = site.get("magazine.publicationIds");
+          <if(publicationIds.length)>
+            <@section>
+              <theme-magazine-issues-block publication-id=publicationIds[0] />
+            </@section>
+          </if>
+
+          <@section>
+            <theme-section-forbes-block alias="meetings-tradeshows" query-params={ excludeContentIds: ids } />
+          </@section>
 
           <!-- <@section|{ aliases }|>
             <global-section-feed-wrapper aliases=aliases with-pagination=false>
