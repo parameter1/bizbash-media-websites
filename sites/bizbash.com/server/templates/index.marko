@@ -22,7 +22,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
   withStandardQuery: false, // defaultValue(loader.withStandardQuery, true),
 });
 <marko-web-resolve|{ resolved: sectionContent }| promise=promise>
-  $ const { featured, standard } = sectionContent;
+  $ const { featured, standard, ids } = sectionContent;
   <theme-website-section-page id=id alias=alias name=name>
     <@head>
       <marko-web-gtm-website-section-context|{ context }| alias=alias>
@@ -100,7 +100,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
             </div>
           </@section>
 
-          <@section|{ aliases }| modifiers=["first-sm"]>
+          <@section|{ aliases }|>
             <theme-gam-define-display-ad
               name="leaderboard"
               position="home_page"
@@ -109,12 +109,23 @@ $ const promise = websiteSectionContentLoader(apollo, {
             />
           </@section>
 
-          <@section>
-            <theme-content-card-deck-block alias="production-strategy" />
+          <@section modifiers=["gathergeeks"]>
+            <theme-section-card-list-block
+              alias="on-demand/gathergeeks"
+              description="A place where people passionate about the power of live experiences come together."
+            />
           </@section>
 
           <@section>
-            <theme-section-list-deck-block aliases=["production-strategy", "catering-design", "event-tech-virtual"] />
+            <theme-section-forbes-block alias="production-strategy" query-params={ excludeContentIds: ids } />
+          </@section>
+
+          <!-- <@section>
+            <theme-opinion-block alias="on-demand/gathergeeks" />
+          </@section> -->
+
+          <@section>
+            <theme-section-forbes-block alias="catering-design" query-params={ excludeContentIds: ids } reverse=true />
           </@section>
 
           $ const publicationIds = site.get("magazine.publicationIds");
@@ -123,6 +134,16 @@ $ const promise = websiteSectionContentLoader(apollo, {
               <theme-magazine-issues-block publication-id=publicationIds[0] />
             </@section>
           </if>
+
+          <@section>
+            <theme-section-forbes-block alias="event-tech-virtual" query-params={ excludeContentIds: ids } />
+          </@section>
+
+          <@section>
+            <theme-section-forbes-block alias="venues-destinations" query-params={ excludeContentIds: ids } reverse=true />
+          </@section>
+
+
           <!-- <@section|{ aliases }|>
             <global-section-feed-wrapper aliases=aliases with-pagination=false>
               <@header>${i18n("More from")} ${config.siteName()}</@header>
