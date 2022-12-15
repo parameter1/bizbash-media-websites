@@ -11,7 +11,6 @@ $marko-web-document-container-max-width: 1300px;
 $primary: #0072bb;
 
 // Fonts
-/* stylelint-disable-property-no-unknown */
 @font-face {
   font-family: oswald-fallback;
   size-adjust: 81.91000000000001%;
@@ -114,7 +113,6 @@ $theme-page-deck-color: #6b7280;
 
 @import "../../node_modules/@bizbash-media/package-global/scss/core";
 
-/* stylelint-disable-selector-max-compound-selectors */
 .document-container {
   background-color: transparent;
 }
@@ -235,13 +233,11 @@ $theme-page-deck-color: #6b7280;
     max-width: 1000px;
   }
   &__section {
-    &--gathergeeks {
-      .section-card-list {
+    &--background-color {
+      .section-card-list,
+      .content-card-deck {
         padding: 1rem 2rem 2rem;
         background-color: #f0f1f2;
-        &__header a {
-          font-size: 26px;
-        }
       }
     }
     .magazine-issues {
