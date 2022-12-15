@@ -19,7 +19,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
   sectionId: id,
   featuredParams: { ...loader.featuredParams, limit: 5 },
   standardParams: loader.standardParams,
-  withStandardQuery: false, // defaultValue(loader.withStandardQuery, true),
+  withStandardQuery: false,
 });
 <marko-web-resolve|{ resolved: sectionContent }| promise=promise>
   $ const { featured, standard, ids } = sectionContent;
@@ -48,7 +48,6 @@ $ const promise = websiteSectionContentLoader(apollo, {
         <marko-web-page-wrapper>
 
           <@section class=["mt-3", "mb-3"]>
-            <!-- @TODO: figure out how to move this marko-web-resolver wrapper & this to component -->
             <div class="row">
               <div class="col-lg-8">
                 $ const heroNode = featured.nodes.slice(0, 1)[0];
@@ -60,10 +59,6 @@ $ const promise = websiteSectionContentLoader(apollo, {
                 };
                 $ const featuredCardNodes = featured.nodes.slice(1);
                 $ const cardNodes = featured.nodes.slice(1);
-                <!-- $ const topStoriesTitle = section.name !== "Home" ? section.name : "Top Story";
-                <marko-web-element tag="h1" block-name="top-stories" name="header">
-                  ${i18n(topStoriesTitle)}
-                </marko-web-element> -->
                 <marko-web-element block-name="top-story" name="row">
                   <marko-web-element block-name="top-story" name="col" modifiers=["hero"]>
                     <theme-content-node
@@ -119,10 +114,6 @@ $ const promise = websiteSectionContentLoader(apollo, {
           <@section>
             <theme-section-forbes-block alias="production-strategy" query-params={ excludeContentIds: ids } />
           </@section>
-
-          <!-- <@section>
-            <theme-opinion-block alias="on-demand/gathergeeks" />
-          </@section> -->
 
           <@section>
             <theme-section-forbes-block alias="catering-design" query-params={ excludeContentIds: ids } reverse=true />
