@@ -224,16 +224,7 @@ $theme-page-deck-color: #6b7280;
   }
 }
 
-.magazine-issues {
-  margin-right: 0;
-  margin-left: 0;
-  &__wrapper {
-    padding-right: 30px;
-    padding-left: 30px;
-    margin-right: 0;
-    margin-left: 0;
-  }
-}
+
 
 .page-wrapper {
   &__deck {
@@ -251,6 +242,15 @@ $theme-page-deck-color: #6b7280;
         &__header a {
           font-size: 26px;
         }
+      }
+    }
+    .magazine-issues {
+      margin-right: 0;
+      margin-left: 0;
+      &__wrapper {
+        padding: 1rem 2rem 2rem;
+        margin-right: 0;
+        margin-left: 0;
       }
     }
   }
