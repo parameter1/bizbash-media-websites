@@ -17,13 +17,12 @@ const resources = [
   { href: '/events', label: 'Events' },
   { href: 'https://www.bizbashlive.com/EEA21', label: 'Awards', target: '_blank' },
   { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise', target: '_blank' },
-  { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Subscribe', target: '_blank' },
   { href: '/hubilo', label: 'BizBash x Hubilo', modifiers: ['gold'] },
 ];
 
 const utilities = [
   { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Newsletter Signup', target: '_blank' },
-  // { href: 'https://tcc.dragonforms.com/loading.do?omedasite=TCC1_IEnew', label: 'Subscribe to Magazine', target: '_blank' },
+  { href: 'https://cloud.mail.bizbash.com/BizbashMagazineSubscribe', label: 'Subscribe to Magazine', target: '_blank' },
 ];
 
 const productionStrategy = [
