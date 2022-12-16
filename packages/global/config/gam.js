@@ -22,14 +22,13 @@ module.exports = ({
     .setTemplate('LEADERBOARD', {
       size: [
         [970, 250],
-        [970, 90],
         [300, 100],
         [300, 250],
         [320, 50],
         [265, 149], // Featured Pushdown / Fluid Banner
       ],
       sizeMapping: [
-        { viewport: [980, 0], size: [[970, 250], [970, 90], [265, 149]] },
+        { viewport: [980, 0], size: [[970, 250], [265, 149]] },
         { viewport: [750, 0], size: [[300, 50], [265, 149]] },
         { viewport: [300, 0], size: [[300, 50], [320, 50], [265, 149]] },
       ],
