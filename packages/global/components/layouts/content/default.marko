@@ -71,7 +71,6 @@ $ const shouldInjectAds = ["article", "blog", "video", "media-gallery", "news", 
               <marko-web-content-embed-code block-name=blockName obj=iframeContent />
             </if>
             <else-if(type === "media-gallery")>
-              <!-- <marko-web-image-slider images=images /> -->
             </else-if>
             <else-if(displayPrimaryImage)>
               $ let forceDisplay;
@@ -198,6 +197,19 @@ $ const shouldInjectAds = ["article", "blog", "video", "media-gallery", "news", 
                       <marko-web-content-body obj=author block-name="inline-author-bio" />
                     </if>
                   </for>
+                </if>
+
+                <if(type === "media-gallery")>
+                  $ const images = getAsArray(content, 'images.edges').map(({ node }) => node);
+                  <if(images.length)>
+                    <div class="page-contents__images">
+                      <for|image, index| of=images>
+                        <div id=`image-${image.id}`>
+                          <theme-primary-image-block block-name="gallery-image" obj=image />
+                        </div>
+                      </for>
+                    </div>
+                  </if>
                 </if>
 
                 <if(displayReadNext)>

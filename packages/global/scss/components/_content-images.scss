@@ -1,0 +1,16 @@
+.page-contents__images {
+  .primary-image {
+    border-bottom: solid 1px $gray-800;
+    margin-bottom: map-get($spacers, block);
+    &__wrapper {
+      margin-top: map-get($spacers, 2);
+      margin-bottom: map-get($spacers, 2);
+    }
+    &__image-display-name {
+      font-weight: $font-weight-bold;
+    }
+    &__image-credit {
+      display: block;
+    }
+  }
+}
