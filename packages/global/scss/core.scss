@@ -115,6 +115,10 @@ label {
     }
   }
 
+  &__title a {
+    max-height: 80px
+  }
+
   &--video-content-type {
     #{ $self } {
       &__image-inner-wrapper {
@@ -318,6 +322,24 @@ label {
   }
 }
 
+.site-footer-newsletter {
+  &__name {
+    @include skin-typography($style: "footer-header-1");
+    margin-bottom: 8px;
+  }
+  &__header {
+    font-size: 26px;
+  }
+  &__description {
+    font-size: 19px;
+  }
+  &__form {
+    input {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
 // Begin right rail content layout CSS
 .content-page-body {
   padding-top: 12px;
@@ -382,11 +404,31 @@ label {
 
 // page & block title
 .page--load-more .node-list,
-.top-stories,
+.top-stories {
+  &__header {
+    font-size: 48px;
+  }
+}
 .related-stories,
-.content-card-deck,
-.section-card-list,
-.magazine-issues,
+.content-card-deck {
+  &__header {
+    font-size: 48px;
+  }
+  &__view-more {
+    font-size: 18px;
+  }
+}
+.section-card-list {
+  &__header {
+    font-size: 48px;
+  }
+}
+.magazine-issues {
+  &__header {
+    font-size: 48px;
+    padding-top: 0px;
+  }
+}
 .section-cards {
   &__header {
     position: relative;
@@ -552,7 +594,17 @@ label {
   $self: &;
   top: $theme-site-navbar-logo-height-sm;
   @media (min-width: $skin-desktop-menu-breakpoint) {
-    top: $theme-site-navbar-logo-height-sm + 26px;
+    top: $theme-site-navbar-logo-height-sm + 53px;
     z-index: 15000;
+  }
+}
+
+.section-forbes {
+  @include media-breakpoint-up(lg) {
+    .card-deck-flow {
+      &__node {
+        margin-bottom: 10rem;
+      }
+    }
   }
 }
