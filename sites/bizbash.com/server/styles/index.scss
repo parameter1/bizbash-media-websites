@@ -96,7 +96,7 @@ $skin-content-body-max-width: 1000px;
 //.025em
 // .875rem
 $theme-site-navbar-logo-height-sm: 45px;
-$theme-site-navbar-logo-height: 60px;
+$theme-site-navbar-logo-height: 75px;
 $theme-site-navbar-secondary-font-weight: 400;
 $theme-site-navbar-secondary-bg-color: $primary;
 $theme-site-navbar-secondary-link-color: #f8fafc;
@@ -121,6 +121,7 @@ $theme-page-deck-color: #6b7280;
 .site-navbar {
   $self: &;
   &--primary {
+    padding: 5px 16px;
     background-color: #e2e8f0;
     border-top: 1px solid #64748b;
     border-bottom: 1px solid #c4c6cb;
@@ -170,7 +171,7 @@ $theme-page-deck-color: #6b7280;
       }
       &__container {
         @media (min-width: map-get($theme-site-header-breakpoints, small-logo)) {
-          height: 75px;
+          height: 115px;
         }
       }
     }
@@ -178,6 +179,7 @@ $theme-page-deck-color: #6b7280;
   &__items {
     &--primary {
       justify-content: space-between;
+      font-size: 18px;
     }
   }
   &__item {
@@ -193,6 +195,7 @@ $theme-page-deck-color: #6b7280;
   .subscribe-box {
     &--call-to-action a {
       margin-left: 10px;
+      font-size: 1.25rem;
       font-weight: 600;
       color: #ffd700;
     }
