@@ -84,6 +84,10 @@ module.exports = {
       title: 'Webinars',
       description: '<p>BizBash is excited to bring our audience the latest knowledge and innovation from #eventprofs with our webinars and virtual showcases. Take a look at the latest trends in event tech, design, food and beverage, and more!</p><p>Looking to host a webinar with BizBash? Inquire <a href="https://www.bizbashlive.com/advertise" title="Advertise with Bizbash">here</a>.</p><p>Interested in sharing your insights with the BizBash virtual audience? Submit to speak <a href="https://www.bizbash.com/production-strategy/programming-entertainment/article/21109266/call-for-speakers-how-should-event-planners-kick-off-a-new-decade" title="Call for Speaking">here</a>.</p>',
     },
+    whitepapers: {
+      title: 'Whitepapers & eBooks',
+      description: '',
+    },
   },
   magazine: {
     publicationIds: ['5b2a4e6c0305572b008b45ae'],
