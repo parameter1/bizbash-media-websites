@@ -1,6 +1,7 @@
 {
   "taglib-imports": [
     "./blocks/marko.json",
+    "./directory-search/marko.json",
     "./layouts/marko.json",
     "./wrappers/marko.json"
   ],

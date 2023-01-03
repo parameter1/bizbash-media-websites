@@ -1,0 +1,52 @@
+import { getAsObject, getAsArray, get } from "@parameter1/base-cms-object-path";
+import hierarchyAliases from "@parameter1/base-cms-marko-web/utils/hierarchy-aliases";
+import topics from '@bizbash-media/package-global/components/directory-search/venue-topics';
+
+$ const { GAM, site } = out.global;
+$ const { id, alias, name, pageNode } = data;
+
+<marko-web-website-section-page-layout id=id alias=alias name=name>
+  <@head>
+    <marko-web-gtm-website-section-context|{ context }| alias=alias>
+      <marko-web-gtm-push data=context />
+    </marko-web-gtm-website-section-context>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+       <marko-web-gam-slots slots=adSlots />
+    </marko-web-resolve-page>
+  </@head>
+
+  <@above-container>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      $ const aliases = hierarchyAliases(section);
+      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "wa", aliases }) />
+      <marko-web-gam-out-of-page-ad ...GAM.getAdUnit({ name: "reskin", aliases }) />
+    </marko-web-resolve-page>
+  </@above-container>
+  <@page>
+    <marko-web-resolve-page|{ data: section, resolved }| node=pageNode>
+      <marko-web-page-wrapper modifiers=["no-bottom-padding"]>
+        <@section|{ aliases }|>
+          <theme-gam-define-display-ad
+            name="leaderboard"
+            position="section"
+            aliases=aliases
+            modifiers=["inter-block"]
+          />
+        </@section>
+        <@section>
+          <!-- <global-breadcrumbs-website-section section=section /> -->
+          <marko-web-website-section-name tag="h1" class="page-wrapper__title" obj=section />
+          <marko-web-website-section-description tag="p" class="page-wrapper__description" obj=section />
+        </@section>
+        <@section>
+          <global-directory-search content-type="Venue" topics=topics />
+        </@section>
+      </marko-web-page-wrapper>
+    </marko-web-resolve-page>
+  </@page>
+  <@foot>
+    <marko-web-resolve-page|{ data: section }| node=pageNode>
+      <theme-fixed-ad-bottom aliases=hierarchyAliases(section) />
+    </marko-web-resolve-page>
+  </@foot>
+</marko-web-website-section-page-layout>

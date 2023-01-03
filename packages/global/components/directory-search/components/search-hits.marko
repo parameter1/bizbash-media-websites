@@ -1,0 +1,87 @@
+import { get, getAsObject, getAsArray } from "@parameter1/base-cms-object-path";
+import querystring from 'querystring';
+
+$ const { req } = out.global;
+$ const pageNumber = parseInt(input.pageNumber, 10);
+$ const pageSize = parseInt(input.pageSize, 10);
+$ const hits = getAsObject(input, 'hits');
+$ const { found = 0 } = hits;
+$ const nodes = getAsArray(hits, 'hit');
+
+$ const previousQuery = querystring.stringify({ ...req.query, page: pageNumber - 1 });
+$ const previousClass = (pageNumber > 1) ? 'page-item' : 'page-item disabled';
+
+$ const first = (pageSize * (pageNumber - 1)) + 1;
+$ const last = pageSize * pageNumber;
+
+$ const nextQuery = querystring.stringify({ ...req.query, page: pageNumber + 1 });
+$ const nextClass = (last < found) ? 'page-item' : 'page-item disabled';
+
+$ const { CDN_IMAGE_HOSTNAME = 'img.bizbash.com' } = process.env;
+
+
+<marko-web-node-list>
+  <@nodes nodes=nodes>
+    <@slot|{ node }|>
+      $ const fields = getAsObject(node, 'fields');
+      $ const modifiers = ['directory-search-hit'];
+      $ if (Array.isArray(fields.badge)) {
+        modifiers.push('directory-featured');
+        fields.badge.forEach(badge => modifiers.push(`directory-featured-${badge}`));
+      };
+      $ const imageSrc = () => {
+        const { primaryimage: image } = fields;
+        return image ? `${image.replace('cdn.bizbash.com', CDN_IMAGE_HOSTNAME).replace('.png', '.jpg')}?auto=format&ar=16:9&fit=crop&crop=focalpoint&fp-x=0.5&fp-y=0.5` : `https://${CDN_IMAGE_HOSTNAME}/files/base/bizbash/bzb/image/2019/01/bizbash_placeholder.5c3778bf1e44d.png`;
+      };
+      <marko-web-node
+        type=`${fields.type}-content`
+        card=true
+        image-position="left"
+        modifiers=modifiers
+      >
+        <h3 class="content__presented-by">
+          Presented by $!{fields.name}
+        </h3>
+        <@image
+          src=imageSrc()
+          alt=fields.name
+          fluid=false
+          ar="16:9"
+          width=240
+          link={ href: `/${node.id}` }
+        />
+        <@body>
+          <@title tag="h5">
+            <a href=`/${node.id}`>$!{fields.name}</a>
+          </@title>
+          <@text>
+            ${fields.address1}
+          </@text>
+          <@text>
+            ${fields.address2}
+          </@text>
+          <@text>
+            ${fields.city} ${fields.state} ${fields.zip} ${fields.country}
+          </@text>
+        </@body>
+      </marko-web-node>
+    </@slot>
+  </@nodes>
+</marko-web-node-list>
+<nav class="directory-pagination" aria-label="Directory search results pagination">
+  <ul class="pagination">
+    <li class=previousClass>
+      <a class="page-link" href=`${req.path}?${previousQuery}` rel="nofollow">
+        <marko-web-icon name="chevron-left" />
+        Previous
+      </a>
+    </li>
+    <li class="page-item disabled"><a class="page-link">Showing: ${first} - ${last} of ${found}</a></li>
+    <li class=nextClass>
+      <a class="page-link" href=`${req.path}?${nextQuery}` rel="nofollow">
+        Next
+        <marko-web-icon name="chevron-right" />
+      </a>
+    </li>
+  </ul>
+</nav>

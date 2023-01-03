@@ -1,0 +1,204 @@
+@import "../../node_modules/bootstrap/scss/pagination";
+
+@mixin input-font-style {
+  font-family: $skin-font-family-primary;
+  font-size: 13px;
+  line-height: 24px;
+  color: #666;
+}
+
+.directory-facets-toggle {
+  display: flex;
+  padding: 20px;
+  margin-bottom: map-get($spacers, block);
+  font-family: $skin-font-family-primary;
+  background-color: #f1f1f1;
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+  &__label {
+    align-self: center;
+  }
+
+  &__button {
+    @include theme-toggle-button();
+    align-self: center;
+    margin-left: auto;
+  }
+}
+
+.directory-pagination {
+  display: flex;
+  justify-content: center;
+  padding-top: map-get($spacers, block);
+  border-top: 1px solid $gray-200;
+}
+
+.directory-facets {
+  $color: $gray-200;
+  $self: &;
+  &__input,
+  &__input:focus {
+    @include input-font-style();
+    margin-bottom: 1.5rem;
+    border: solid 5px $gray-200;
+  }
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
+
+  &--open {
+    display: block;
+  }
+
+  &__title {
+    @include theme-card-header();
+    padding-left: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    max-height: initial;
+    padding-left: 0;
+    margin-bottom: map-get($spacers, block);
+
+    #{ $self } {
+      &__list {
+        display: none;
+        border: none;
+        #{ $self } {
+          // stylelint-disable-next-line
+          &__link {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: inline;
+    color: #333;
+    &:hover {
+      color: #333;
+      text-decoration: underline;
+    }
+    &--active {
+      font-weight: 700;
+      color: $primary;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: block;
+    padding-right: 2rem;
+    font-family: $skin-font-family-secondary;
+    font-size: 14px;
+    line-height: 1;
+
+    &--open {
+      > #{ $self } {
+        &__list {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  &__toggle {
+    @include theme-toggle-button();
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    margin-right: .5rem;
+    margin-left: auto;
+
+    & > .icon {
+      @include theme-navbar-link-color(( active: $primary, hover: $primary, default: $black ));
+    }
+  }
+}
+
+.directory-search {
+  display: flex;
+  padding: 20px;
+  background-color: #f1f1f1;
+  &__input {
+    width: 80%;
+    @include input-font-style();
+    border: none;
+    &::placeholder {
+      color: #666;
+    }
+  }
+  &__button {
+    width: 20%;
+    padding: 0;
+    margin-left: .5rem;
+    font-family: $skin-font-family-primary;
+    font-size: 13px;
+    line-height: 24px;
+    text-transform: uppercase;
+  }
+}
+
+.directory-results {
+  .node-list {
+    $self: &;
+    &__node {
+      padding: 0;
+      @include marko-web-node-list-border($property: border-bottom);
+    }
+    &--pinned {
+      .node-list {
+        &__node {
+          border-bottom-width: 3px;
+        }
+      }
+      .node {
+        &__header {
+          padding: 0;
+          margin: 0;
+        }
+        // Directory presented by (for pinned items)
+        &__presented-by {
+          width: 100%;
+          padding: 5px 10px;
+          margin: 0;
+          font-family: $skin-font-family-secondary;
+          font-size: 18px;
+          font-weight: 700;
+          line-height: 19.8px;
+          color: $white;
+          background-color: $primary;
+        }
+        &__image-wrapper {
+          margin-bottom: map-get($spacers, 3);
+        }
+        &--card {
+          padding-top: map-get($spacers, 3);
+          padding-bottom: map-get($spacers, 3);
+        }
+        &__body {
+          padding-left: 0;
+        }
+      }
+    }
+    .node {
+      &__title {
+        font-size: 18px;
+        font-weight: 700;
+      }
+      &__text {
+        font-family: $skin-font-family-primary;
+        font-size: 14px;
+        line-height: 1.25rem;
+        color: rgba(51, 51, 51, .5);
+      }
+    }
+  }
+}

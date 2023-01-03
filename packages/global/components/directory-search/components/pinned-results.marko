@@ -1,0 +1,67 @@
+import gql from 'graphql-tag';
+import { get, getAsArray, getAsObject } from "@parameter1/base-cms-object-path";
+import queryFragment from '../../../graphql/fragments/pinned-directory-content-list';
+
+$ const marketId = Number(input.marketId);
+$ const topicId = Number(input.topicId);
+
+<if(topicId && marketId)>
+  <marko-web-query|{ nodes }|
+    name="website-scheduled-content"
+    params= {
+      sectionId: topicId,
+      optionId: 40105,
+      limit: 100,
+      queryFragment,
+    }
+  >
+    $ const pinned = nodes.reduce((arr, node) => {
+      const taxonomy = getAsArray(node, "taxonomy.edges").map(edge => edge.node);
+      const marketIds = taxonomy.filter(t => t.type === "Market").map(t => t.id);
+      if (marketIds.includes(marketId, 'id')) arr.push(node);
+      return arr;
+    }, []);
+    <marko-web-node-list modifiers=['pinned']>
+      <@nodes nodes=pinned>
+        <@slot|{ node }|>
+          $ const primaryImage = getAsObject(node, "primaryImage");
+          <marko-web-node
+            type=`${node.type}-content`
+            card=true
+            image-flush=true
+            attrs=input.attrs
+          >
+            <@header>
+              <@left class="node__presented-by">
+                  Presented by $!{node.shortName}
+              </@left>
+            </@header>
+            <@image
+              src=primaryImage.src
+              alt=primaryImage.alt
+              is-logo=primaryImage.isLogo
+              fluid=true
+              ar="16:9"
+              width=640
+              link={ href: get(node, "siteContext.path") }
+            />
+            <@body>
+              <@title tag="h5">
+                <a href=`/${node.id}`>$!{node.shortName}</a>
+              </@title>
+              <@text>
+                ${node.address1}
+              </@text>
+              <@text>
+                ${node.address2}
+              </@text>
+              <@text>
+                ${node.city} ${node.state} ${node.zip} ${node.country}
+              </@text>
+            </@body>
+          </marko-web-node>
+        </@slot>
+      </@nodes>
+    </marko-web-node-list>
+  </marko-web-query>
+</if>
