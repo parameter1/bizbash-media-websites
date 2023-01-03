@@ -13,14 +13,15 @@ const resources = [
   { href: '/on-demand', label: 'On-Demand' },
   { href: '/white-papers', label: 'White Papers & E-Books' },
   { href: '/on-demand/gathergeeks', label: 'Podcast' },
-  { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazines' },
+  { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazine' },
   { href: '/events', label: 'Events' },
   { href: 'https://www.bizbashlive.com/EEA21', label: 'Awards', target: '_blank' },
-  { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise', target: '_blank' },
-  { href: '/hubilo', label: 'BizBash x Hubilo', modifiers: ['gold'] },
 ];
 
 const utilities = [
+  { href: 'https://www.bizbash.com/page/about-us', label: 'About Us' },
+  { href: 'https://www.bizbash.com/page/advertise-with-us', label: 'Advertise With Us' },
+  { href: 'https://www.bizbash.com/page/get-featured', label: 'Get Featured' },
   { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Newsletter Signup', target: '_blank' },
   { href: 'https://cloud.mail.bizbash.com/BizbashMagazineSubscribe', label: 'Subscribe to Magazine', target: '_blank' },
 ];
@@ -233,15 +234,6 @@ module.exports = {
     ],
   },
   footer: {
-    col1: {
-      label: 'Topics',
-      colspan: 5,
-      items: topics,
-    },
-    col2: {
-      label: 'Resources',
-      items: resources,
-    },
     items: [
       privacyPolicy,
       { href: '/page/contact-us', label: 'Contact Us' },
