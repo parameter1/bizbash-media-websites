@@ -246,6 +246,12 @@ label {
   }
 }
 
+.page-contents {
+  &__content-body {
+    font-size: 20px;
+    letter-spacing: .5px;
+  }
+}
 // .site-header {
 //   margin-bottom: 1rem;
 //   @media (min-width: 980px) {
