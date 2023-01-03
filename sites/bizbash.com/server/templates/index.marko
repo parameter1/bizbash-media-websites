@@ -116,6 +116,14 @@ $ const promise = websiteSectionContentLoader(apollo, {
             <theme-section-forbes-block alias="production-strategy" query-params={ excludeContentIds: ids } />
           </@section>
 
+          <!-- <@section modifiers=["background-color"]>
+            <theme-section-card-list-block
+              alias="white-papers"
+              description="The latest white papers & e-books from BizBash"
+              button-class="btn btn-primary"
+            />
+          </@section> -->
+
           <@section>
             <theme-section-forbes-block alias="catering-design" query-params={ excludeContentIds: ids } reverse=true />
           </@section>
@@ -143,6 +151,14 @@ $ const promise = websiteSectionContentLoader(apollo, {
 
           <@section>
             <theme-section-forbes-block alias="venues-destinations" query-params={ excludeContentIds: ids } />
+          </@section>
+
+          <@section modifiers=["background-color"]>
+            <theme-section-card-list-block
+              alias="industry-buzz"
+              description=""
+              button-class="btn btn-primary"
+            />
           </@section>
 
           <@section>
