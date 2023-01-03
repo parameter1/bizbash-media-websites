@@ -62,6 +62,18 @@ $ const tagline = site.get("tagline");
       </if>
 
       <div class="row">
+        <div class=`col-md-${site.get("navigation.footer.col1.colspan") || 4}`>
+          <!-- sections -->
+          <theme-site-menu-section
+            tag="nav"
+            block-name="site-footer-nav"
+            label=site.get("navigation.footer.col1.label")
+            items=site.getAsArray("navigation.footer.col1.items")
+            modifiers=["primary"]
+            reg-enabled=regEnabled
+            has-user=hasUser
+          />
+        </div>
         $ const newsletterBlock = "site-footer-newsletter";
         <if(newsletterConfig.enable && newsletterConfig.action)>
           <div class=`col-md-${newsletterConfig.colspan || 4} mb-block`>
@@ -94,18 +106,7 @@ $ const tagline = site.get("tagline");
             </marko-web-block>
           </div>
         </if>
-        <div class=`col-md-${site.get("navigation.footer.col1.colspan") || 2}`>
-          <!-- sections -->
-          <theme-site-menu-section
-            tag="nav"
-            block-name="site-footer-nav"
-            label=site.get("navigation.footer.col1.label")
-            items=site.getAsArray("navigation.footer.col1.items")
-            modifiers=["primary"]
-            reg-enabled=regEnabled
-            has-user=hasUser
-          />
-        </div>
+
         <div class=`col-md-${site.get("navigation.footer.col2.colspan") || 2}`>
           <!-- sections -->
           <theme-site-menu-section
@@ -113,39 +114,6 @@ $ const tagline = site.get("tagline");
             block-name="site-footer-nav"
             label=site.get("navigation.footer.col2.label")
             items=site.getAsArray("navigation.footer.col2.items")
-            modifiers=["primary"]
-            reg-enabled=regEnabled
-            has-user=hasUser
-          />
-        </div>
-        <div class=`col-md-${site.get("navigation.footer.col3.colspan") || 2}`>
-          <theme-site-menu-section
-            tag="nav"
-            block-name="site-footer-nav"
-            label=site.get("navigation.footer.col3.label")
-            items=site.getAsArray("navigation.footer.col3.items")
-            modifiers=["primary"]
-            reg-enabled=regEnabled
-            has-user=hasUser
-          />
-        </div>
-        <div class=`col-md-${site.get("navigation.footer.col4.colspan") || 2}`>
-          <theme-site-menu-section
-            tag="nav"
-            block-name="site-footer-nav"
-            label=site.get("navigation.footer.col4.label")
-            items=site.getAsArray("navigation.footer.col4.items")
-            modifiers=["primary"]
-            reg-enabled=regEnabled
-            has-user=hasUser
-          />
-        </div>
-        <div class=`col-md-${site.get("navigation.footer.col5.colspan") || 2}`>
-          <theme-site-menu-section
-            tag="nav"
-            block-name="site-footer-nav"
-            label=site.get("navigation.footer.col5.label")
-            items=site.getAsArray("navigation.footer.col5.items")
             modifiers=["primary"]
             reg-enabled=regEnabled
             has-user=hasUser
