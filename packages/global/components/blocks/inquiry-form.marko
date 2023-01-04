@@ -1,0 +1,18 @@
+import { getAsObject } from "@parameter1/base-cms-object-path";
+
+$ const content = getAsObject(input, 'content');
+$ const { RECAPTCHA_V3_SITE_KEY } =  process.env;
+
+<div class="card">
+  <div class="card-header">Request More Information</div>
+  <div class="card-body">
+    <p>Fill out the form below to request more information about <marko-web-content-name tag=null obj=content link=false />.</p>
+    <hr id="inquiry-form">
+    <marko-web-browser-component name="InquiryForm" props={
+        formClass: 'inquiry-form__form',
+        contentId: content.id,
+        contentType: content.type,
+        siteKey: RECAPTCHA_V3_SITE_KEY
+      } />
+  </div>
+</div>

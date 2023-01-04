@@ -16,5 +16,17 @@
   },
   "<global-industry-buzz-block>": {
     "template": "./industry-buzz.marko"
+  },
+  "<global-venue-capacity>": {
+    "template": "./venue-capacity.marko",
+    "@spaces": "array"
+  },
+  "<global-inquiry-form>": {
+    "template": "./inquiry-form.marko",
+    "@content": "object"
+  },
+  "<global-image-slider>": {
+    "template": "./image-slider.marko",
+    "@images" : "array"
   }
 }

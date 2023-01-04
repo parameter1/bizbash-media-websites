@@ -61,6 +61,7 @@ $ const shouldInjectAds = ["article", "blog", "video", "media-gallery", "news", 
 
   <@section|{ aliases, content, authors }| modifiers=["content-body"]>
     $ const { primarySection } = content;
+    $ const images = getAsArray(content, 'images.edges').map(({ node }) => node);
     <div class="row">
       <div class="col-lg-8">
         <global-content-contact-details obj=content />
@@ -72,6 +73,9 @@ $ const shouldInjectAds = ["article", "blog", "video", "media-gallery", "news", 
             </if>
             <else-if(type === "media-gallery")>
               <!-- <marko-web-image-slider images=images /> -->
+            </else-if>
+            <else-if(["venue", "supplier"].includes(type) && images.length)>
+              <global-image-slider images=images />
             </else-if>
             <else-if(displayPrimaryImage)>
               $ let forceDisplay;
@@ -131,6 +135,12 @@ $ const shouldInjectAds = ["article", "blog", "video", "media-gallery", "news", 
                 $ const sidebars = getAsArray(content, "sidebars").map((sidebar) => sidebar.body);
                 <marko-web-content-sidebars block-name=blockName obj={ sidebars } />
 
+                <if(type === "venue" || type === "supplier")>
+                  <div class="page-wrapper__body">
+                    $ const spaces = getAsArray(content, 'spaces.edges').map(({ node }) => node);
+                    <global-venue-capacity spaces=spaces />
+                  </div>
+                </if>
                 <!-- Add Transcripts and allow for the ad injection -->
                 <if(content.transcript)>
                   $ const transcriptId = `content-transcript-${content.id}`;
@@ -163,7 +173,6 @@ $ const shouldInjectAds = ["article", "blog", "video", "media-gallery", "news", 
                 </if>
 
                 <if(type === "media-gallery")>
-                  $ const images = getAsArray(content, 'images.edges').map(({ node }) => node);
                   <if(images.length)>
                     <div class="page-contents__images">
                       <for|image, index| of=images>
@@ -199,6 +208,9 @@ $ const shouldInjectAds = ["article", "blog", "video", "media-gallery", "news", 
         </div>
       </div>
       <div class="col-lg-4 page-rail">
+        <if(["venue", "supplier"].includes(type))>
+          <global-inquiry-form content=content />
+        </if>
         <marko-web-identity-x-context|{ hasUser }|>
           <if(!hasUser)>
             <identity-x-newsletter-form-inline

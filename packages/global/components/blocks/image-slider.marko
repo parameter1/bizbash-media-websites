@@ -1,0 +1,28 @@
+import { getAsArray } from "@parameter1/base-cms-object-path";
+import { buildImgixUrl } from "@parameter1/base-cms-image";
+
+$ const imageOptions = {
+  ar: "16:9",
+  fit: "crop",
+  crop: "focalpoint",
+  fpX: 0.5,
+  fpY: 0.5,
+  w: 1136,
+  h: 639,
+};
+
+$ const logoOptions = {
+  ...imageOptions,
+  fit: "fillmax",
+  fill: "blur",
+};
+
+$ const images = getAsArray(input, "images").map(node => {
+  const opts = (Boolean(node.isLogo)) ? logoOptions : imageOptions;
+  const src = buildImgixUrl(node.src, opts, opts, false);
+  return { ...node, src };
+});
+
+<if(images.length)>
+  <marko-web-browser-component name="GlobalImageSlider" props={ images } />
+</if>
