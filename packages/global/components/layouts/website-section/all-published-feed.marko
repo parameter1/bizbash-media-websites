@@ -1,0 +1,97 @@
+import queryFragment from "@parameter1/base-cms-marko-web-theme-monorail/graphql/fragments/section-feed-block";
+
+import { getAsArray } from "@parameter1/base-cms-object-path";
+
+$ const {
+  alias,
+  name,
+  withAds,
+  description,
+} = input;
+
+$ const type = input.type || "published-content";
+$ const sections = getAsArray(input, "sections");
+
+$ const { pagination: p, GAM } = out.global;
+$ const perPage = 12;
+$ const aliases = [alias];
+$ const queryParams = {
+  queryFragment,
+  ...input.queryParams,
+}
+
+<theme-default-page
+  alias=alias
+  type=type
+  name=name
+  description=description
+>
+  <@head>
+    <theme-section-feed-block|{ totalCount }| count-only=true query-name="all-published-content">
+      <@query-params ...queryParams />
+      <theme-pagination-controls
+        per-page=perPage
+        total-count=totalCount
+        as-rels=true
+      />
+    </theme-section-feed-block>
+  </@head>
+  <if(GAM.enableRevealAd)>
+    <@above-container>
+      <theme-reveal-ad-handler select-all-targets=true path=GAM.getAdUnit({ name: "reskin", aliases: [alias] }).path id="reveal-ad" />
+    </@above-container>
+  </if>
+  <@page>
+    <marko-web-page-wrapper>
+      <@section modifiers=["first-sm"]>
+        <theme-gam-define-display-ad
+          name="leaderboard"
+          position="section_page"
+          aliases=[alias]
+          modifiers=["inter-block"]
+        />
+      </@section>
+
+      <@section|{ blockName }|>
+        <if(input.beforeName)>
+          <${input.beforeName}
+            aliases=aliases
+            block-name=blockName
+            section=section
+          />
+        </if>
+        <marko-web-website-section-name|{ value }| tag="h1" block-name=blockName obj={ name, description }>
+          <if(p.page > 1)>${value}: Page ${p.page}</if>
+          <else>${value}</else>
+        </marko-web-website-section-name>
+        <if(input.afterName)>
+          <${input.afterName}
+            aliases=aliases
+            block-name=blockName
+            section=section
+          />
+        </if>
+
+        <if(description)>
+          <marko-web-element class="page-wrapper__description">
+            $!{description}
+          </marko-web-element>
+        </if>
+
+
+        <global-section-feed-wrapper query-name="all-published-content" aliases=[alias] alias=alias modifiers=["all-published"] with-ads=withAds>
+          <@query-params ...queryParams />
+        </global-section-feed-wrapper>
+      </@section>
+
+      <for|s| of=sections>
+        <@section|{ blockName }| modifiers=s.modifiers>
+          <${s.renderBody}
+            block-name=blockName
+            aliases=aliases
+          />
+        </@section>
+      </for>
+    </marko-web-page-wrapper>
+  </@page>
+</theme-default-page>

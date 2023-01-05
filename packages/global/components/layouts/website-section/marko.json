@@ -19,6 +19,17 @@
     "@page-node": "object",
     "@with-ads": "boolean"
   },
+  "<global-all-published-content-feed-layout>": {
+    "template": "./all-published-feed.marko",
+    "@alias": "string",
+    "@sections <section>[]": {},
+    "<before-name>": {},
+    "<after-name>": {},
+    "@description": "string",
+    "@name": "string",
+    "@with-ads": "boolean",
+    "@query-params": "object"
+  },
   "<global-website-section-upcoming-feed-layout>": {
     "template": "./upcoming-feed.marko",
     "@sections <section>[]": {},
