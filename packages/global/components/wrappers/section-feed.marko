@@ -3,13 +3,12 @@ import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 $ const { pagination: p } = out.global;
 $ const perPage = 12;
 $ const withPagination = defaultValue(input.withPagination, true);
-$ const { modifiers } = input;
+$ const { modifiers, queryName } = input;
 $ const withAds = defaultValue(input.withAds, true);
 $ const queryParams = {
   requiresImage: false,
   ...input.queryParams,
 };
-
 <if(input.rails && input.rails.length === 1)>
   <div class="row">
     <div class="col-lg-8">
@@ -18,6 +17,7 @@ $ const queryParams = {
         header=input.header
         modifiers=modifiers
         query-params=queryParams
+        query-name=queryName
         limit=3
         skip=p.skip({ perPage })
         node-list=input.nodeList
@@ -27,6 +27,7 @@ $ const queryParams = {
         alias=input.alias
         modifiers=modifiers
         query-params=queryParams
+        query-name=queryName
         limit=3
         skip=p.skip({ perPage, skip: 3 })
         node-list=input.nodeList
@@ -36,6 +37,7 @@ $ const queryParams = {
         alias=input.alias
         modifiers=modifiers
         query-params=queryParams
+        query-name=queryName
         limit=3
         skip=p.skip({ perPage, skip: 6 })
         node-list=input.nodeList
@@ -45,12 +47,13 @@ $ const queryParams = {
         alias=input.alias
         modifiers=modifiers
         query-params=queryParams
+        query-name=queryName
         limit=3
         skip=p.skip({ perPage, skip: 9 })
         node-list=input.nodeList
       />
       <if(withPagination)>
-        <theme-section-feed-block|{ totalCount }| alias=input.alias count-only=true>
+        <theme-section-feed-block|{ totalCount }| alias=input.alias count-only=true query-name=queryName>
           <@query-params ...queryParams />
           <theme-pagination-controls
             per-page=perPage
@@ -73,6 +76,7 @@ $ const queryParams = {
         header=input.header
         modifiers=modifiers
         query-params=queryParams
+        query-name=queryName
         limit=3
         skip=p.skip({ perPage })
         node-list=input.nodeList
@@ -82,6 +86,7 @@ $ const queryParams = {
         alias=input.alias
         modifiers=modifiers
         query-params=queryParams
+        query-name=queryName
         limit=3
         skip=p.skip({ perPage, skip: 3 })
         node-list=input.nodeList
@@ -103,6 +108,7 @@ $ const queryParams = {
         alias=input.alias
         modifiers=modifiers
         query-params=queryParams
+        query-name=queryName
         limit=3
         skip=p.skip({ perPage, skip: 6 })
         node-list=input.nodeList
@@ -112,12 +118,13 @@ $ const queryParams = {
         alias=input.alias
         modifiers=modifiers
         query-params=queryParams
+        query-name=queryName
         limit=3
         skip=p.skip({ perPage, skip: 9 })
         node-list=input.nodeList
       />
       <if(withPagination)>
-        <theme-section-feed-block|{ totalCount }| alias=input.alias count-only=true>
+        <theme-section-feed-block|{ totalCount }| alias=input.alias count-only=true query-name=queryName>
           <@query-params ...queryParams />
           <theme-pagination-controls
             per-page=perPage
