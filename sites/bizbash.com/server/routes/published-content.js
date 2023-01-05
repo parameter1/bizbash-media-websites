@@ -31,7 +31,7 @@ const types = [
     withAds: true,
   },
   {
-    alias: 'podcast',
+    alias: 'podcasts',
     name: 'Podcast',
     queryParams: {
       includeContentTypes: ['Podcast'],
