@@ -55,8 +55,11 @@ $ const lang = input.lang || "en";
 
   <if(showSocial)>
     <global-content-contact-details-section block-name=blockName modifiers=["social-links"]>
+      <marko-web-element block-name=blockName name="header">
+        Follow ${content.name}:
+      </marko-web-element>
       <for|item| of=socialLinks>
-        <theme-social-follow
+        <theme-social-icon-link
           label=item.label
           provider=item.provider
           href=item.url
