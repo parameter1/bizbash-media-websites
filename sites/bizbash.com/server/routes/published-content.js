@@ -1,5 +1,7 @@
 const template = require('@bizbash-media/package-global/templates/published-content/index');
+const events = require('../templates/published-content/events');
 
+const now = (new Date()).valueOf();
 const types = [
   {
     alias: 'webinars',
@@ -46,11 +48,23 @@ const types = [
     },
     withAds: true,
   },
+  {
+    alias: 'supplier-events',
+    name: 'Supplier Events',
+    queryParams: {
+      includeContentTypes: ['Event'],
+      endingAfter: now,
+      sort: {
+        field: 'startDate',
+        order: 'asc',
+      },
+    },
+    withAds: true,
+  },
 ];
 
 module.exports = (app) => {
-  // app.get('/events', (_, res) => { res.marko(events); });
-  // app.get('/supplier-events', (_, res) => { res.marko(supplierEvents); });
+  app.get('/:alias(events)', (_, res) => { res.marko(events); });
   types.forEach(({
     alias,
     name,
