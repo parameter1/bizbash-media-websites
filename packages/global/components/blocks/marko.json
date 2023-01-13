@@ -10,5 +10,8 @@
   },
   "<global-most-popular-list-block>": {
     "template": "./most-popular-list.marko"
+  },
+  "<global-native-x-announcement-block>": {
+    "template": "./native-x-announcement.marko"
   }
 }
