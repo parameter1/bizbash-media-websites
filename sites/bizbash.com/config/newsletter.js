@@ -2,14 +2,14 @@
 const defaults = {
   // disabled: process.env.DISABLE_IDX_NEWSLETTER_SIGNUP === 'true',
   name: 'Don’t Miss Out',
-  description: 'Ideas, inspiration and the hottest industry events directly to your inbox.',
+  description: 'BizBash editors search the globe to deliver ideas, inspiration and the hottest industry events directly to your inbox.',
 };
 
 module.exports = {
   signupBanner: {
     ...defaults,
     name: 'You\'re Invited!',
-    imagePath: 'files/base/pmmi/all/image/static/newsletter-pushdown/pw-iphone.png',
+    imagePath: '/files/base/bizbash/bzb/image/static/logo/eventIndustryNo1Newsletter.png',
   },
   signupBannerLarge: {
     ...defaults,
