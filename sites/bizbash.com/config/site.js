@@ -78,7 +78,7 @@ module.exports = {
       'hello@weare4EVR.com',
     ],
   },
-  setSearchSortFieldToScore: true,
+  setSearchSortFieldToScore: false,
   publishedContent: {
     webinars: {
       title: 'Webinars',
