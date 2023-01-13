@@ -1,0 +1,32 @@
+$ const { nativeX: nxConfig } = out.global;
+$ const name = input.placementName ? input.placementName : "announcement";
+$ const aliases = input.aliases ? input.aliases : [];
+$ const blockName = "announcement";
+$ const uri = nxConfig.getUri();
+$ const placement = nxConfig.getPlacement({ name, aliases });
+
+<if(uri && placement && placement.id)>
+  <marko-web-native-x-fetch-elements|{ ads }| uri=uri id=placement.id opts={ n: 1 }>
+    $ const hasAd = ads && ads.length && ads[0] && ads[0].hasCampaign;
+    <if(hasAd)>
+      $ const { attributes: attrs, creative, href } = ads[0];
+      $ const { title, teaser, linkText } = creative;
+
+      <marko-web-block name=blockName>
+        <marko-web-link href=href attrs=attrs.link  >
+          <marko-web-element block-name=blockName name="wrapper" attrs=attrs.container >
+            <marko-web-element block-name=blockName name="short-title">
+              ${title}
+            </marko-web-element>
+            <marko-web-element block-name=blockName name="title">
+              ${teaser}
+            </marko-web-element>
+            <marko-web-element block-name=blockName name="cta">
+              ${linkText}
+            </marko-web-element>
+          </marko-web-element>
+        </marko-web-link>
+      </marko-web-block>
+    </if>
+  </marko-web-native-x-fetch-elements>
+</if>
