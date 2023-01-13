@@ -28,6 +28,7 @@
 @import "./components/site-navbar-c";
 // @import "./components/sticky-footer";
 @import "./components/user";
+@import "./components/native-x-announcement";
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -613,4 +614,8 @@ label {
       }
     }
   }
+}
+
+.marko-web-search-sort-by {
+  visibility: hidden;
 }
