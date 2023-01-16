@@ -6,8 +6,9 @@ const config = configureNativeX(
 
 config
   .setAliasPlacements('default', [
-    { name: 'primary', id: '5d4af41d2ab3e700014e2dd6' },
+    { name: 'default', id: '5d4af41d2ab3e700014e2dd6' },
     { name: 'announcement', id: '63ab2696d1addd000187fe87' },
+    { name: 'webinars', id: '63c558c2ee1f4c0001de3847' },
   ])
   .setAliasPlacements('catering-design', [
     { name: 'primary', id: '5d4b04513bb2db00018cfa1a' },
