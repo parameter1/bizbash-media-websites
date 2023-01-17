@@ -11,7 +11,6 @@
       margin-bottom: 30px;
     }
     @include skin-typography($style: "section-header");
-    font-size: 48px;
   }
 
   &__header-left {
@@ -28,6 +27,16 @@
       display: block;
     }
     font-size: 18px;
+  }
+
+  &__view-more-bottom {
+    @include skin-typography($style: "view-more", $link-style: "primary");
+
+    display: block;
+    margin-top: 4px;
+    @include media-breakpoint-up(md) {
+      display: none;
+    }
   }
 
   .node {

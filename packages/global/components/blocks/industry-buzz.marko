@@ -4,6 +4,8 @@ import { defaultValue } from "@parameter1/base-cms-marko-web/utils";
 
 $ const viewMore = defaultValue(input.viewMore, true);
 
+$ const { i18n } = out.global;
+
 $ const queryParams = {
   sectionAlias: input.alias,
   limit: 3,
@@ -34,7 +36,7 @@ $ const blockName = "industry-buzz";
           <if(viewMore && section && section.canonicalPath)>
             <marko-web-element block-name=blockName name="view-more">
               <marko-web-link href=section.canonicalPath>
-                ${viewMore} &raquo;
+                ${i18n("View more")} &raquo;
               </marko-web-link>
             </marko-web-element>
           </if>
@@ -58,5 +60,12 @@ $ const blockName = "industry-buzz";
         />
       </@slot>
     </theme-card-deck-flow>
+    <if(viewMore && section && section.canonicalPath)>
+      <marko-web-element block-name=blockName name="view-more-bottom">
+        <marko-web-link href=section.canonicalPath>
+          ${i18n("View more")} &raquo;
+        </marko-web-link>
+      </marko-web-element>
+    </if>
   </marko-web-block>
 </marko-web-query>

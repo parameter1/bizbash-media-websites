@@ -410,32 +410,24 @@ label {
 }
 // End right rail content layout CSS
 
-// page & block title
+// update block/page title font zies
 .page--load-more .node-list,
-.top-stories {
+.top-stories,
+.related-storie,
+.content-card-deck,
+.section-card-list,
+.magazine-issues,
+.industry-buzz  {
   &__header {
     font-size: 48px;
-  }
-}
-.related-stories,
-.content-card-deck {
-  &__header {
-    font-size: 48px;
+    @media (max-width: map-get($theme-site-header-breakpoints, small-logo)) {
+      font-size: 36px;
+    }
   }
   &__view-more {
     font-size: 18px;
   }
-}
-.section-card-list {
-  &__header {
-    font-size: 48px;
-  }
-}
-.magazine-issues {
-  &__header {
-    font-size: 48px;
-    padding-top: 0px;
-  }
+
 }
 .section-cards {
   &__header {
