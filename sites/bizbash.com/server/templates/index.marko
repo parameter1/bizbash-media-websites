@@ -158,10 +158,9 @@ $ const promise = websiteSectionContentLoader(apollo, {
           </@section>
 
           <@section modifiers=["background-color"]>
-            <theme-section-card-list-block
+            <global-industry-buzz-block
               alias="industry-buzz"
-              description=""
-              button-class="btn btn-primary"
+              view-more="View More"
             />
           </@section>
 
@@ -169,16 +168,6 @@ $ const promise = websiteSectionContentLoader(apollo, {
             <theme-section-forbes-block alias="meetings-trade-shows" query-params={ excludeContentIds: ids } reverse=true />
           </@section>
 
-          <!-- <@section>
-            <marko-web-identity-x-context|{ hasUser }|>
-              <if(!hasUser)>
-                <identity-x-newsletter-form-inline
-                  login-email-placeholder="example@yourcompany.com"
-                  type="inlineSection"
-                />
-              </if>
-            </marko-web-identity-x-context>
-          </@section> -->
         </marko-web-page-wrapper>
       </marko-web-resolve-page>
     </@page>
