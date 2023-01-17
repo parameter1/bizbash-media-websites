@@ -1,0 +1,55 @@
+.industry-buzz {
+  background-color: #f0f1f2;
+  padding: 1rem 2rem 2rem;
+
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    justify-content: space-between;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 30px;
+    }
+    @include skin-typography($style: "section-header");
+    font-size: 48px;
+  }
+
+  &__header-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__view-more {
+    @include skin-typography($style: "view-more", $link-style: "primary");
+    line-height: 1.7;
+    white-space: nowrap;
+    display: none;
+    @include media-breakpoint-up(md) {
+      display: block;
+    }
+    font-size: 18px;
+  }
+
+  .node {
+    &__website-section-name {
+      @include skin-typography($style: "slug-small", $link-style: "primary");
+    }
+  }
+}
+
+.card-deck-flow {
+  $self: &;
+  &--card-deck-flow {
+    #{ $self } {
+      &__node {
+        margin-bottom: 16px;
+        @include media-breakpoint-up(md) {
+          margin-bottom: 0;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
