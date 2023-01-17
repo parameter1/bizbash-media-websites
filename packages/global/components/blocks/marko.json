@@ -13,5 +13,8 @@
   },
   "<global-native-x-announcement-block>": {
     "template": "./native-x-announcement.marko"
+  },
+  "<global-industry-buzz-block>": {
+    "template": "./industry-buzz.marko"
   }
 }
