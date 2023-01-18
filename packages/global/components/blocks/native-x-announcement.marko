@@ -5,7 +5,7 @@ $ const blockName = "announcement";
 $ const uri = nxConfig.getUri();
 $ const placement = nxConfig.getPlacement({ name, aliases });
 
-<if(nxConfig.enable && uri && placement && placement.id)>
+<if(nxConfig.enabled && uri && placement && placement.id)>
   <marko-web-native-x-fetch-elements|{ ads }| uri=uri id=placement.id opts={ n: 1 }>
     $ const hasAd = ads && ads.length && ads[0] && ads[0].hasCampaign;
     <if(hasAd)>
