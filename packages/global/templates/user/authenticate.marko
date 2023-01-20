@@ -3,12 +3,12 @@ import defaultValue from "@parameter1/base-cms-marko-core/utils/default-value";
 
 $ const { site, config } = out.global;
 
-$ const type = "profile";
-$ const title = `${config.siteName()} Profile`;
+$ const type = "authenticate";
+$ const title = "Authenticate";
 $ const description = defaultValue(get(site, "config.completeYourProfileVerbiage"), `Complete your ${config.siteName()} Profile`);
 $ const buttonLabel = defaultValue(get(site, "config.profileSubmitButtonLabel"), "Submit");
 
-<marko-web-default-page-layout type=type title=title description=description>
+<marko-web-default-page-layout type=type title=title description=title>
   <@head>
     <marko-web-gtm-default-context|{ context }| type=type>
       <marko-web-gtm-push data=context />
@@ -18,7 +18,7 @@ $ const buttonLabel = defaultValue(get(site, "config.profileSubmitButtonLabel"),
     <marko-web-page-wrapper>
       <@section>
         <h1 class="page-wrapper__title">${description}</h1>
-        <marko-web-identity-x-form-profile button-label=buttonLabel />
+        <marko-web-identity-x-form-authenticate button-label=buttonLabel />
       </@section>
     </marko-web-page-wrapper>
   </@page>
