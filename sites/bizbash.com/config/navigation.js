@@ -76,9 +76,9 @@ const mobileMenu = {
 module.exports = {
   promos: [
     {
-      title: 'BizBash x Hubilo',
-      callToAction: 'BizBash x Hubilo',
-      link: { href: '/hubilo', label: 'BizBash x Hubilo', modifiers: ['gold'] },
+      title: 'Advertise With Us',
+      callToAction: 'Advertise With Us',
+      link: 'https://www.bizbash.com/page/advertise-with-us',
     },
   ],
   user: {
