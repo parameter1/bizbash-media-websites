@@ -331,20 +331,54 @@ label {
   }
 }
 
-.site-footer-newsletter {
-  &__name {
-    @include skin-typography($style: "footer-header-1");
-    margin-bottom: 8px;
-  }
-  &__header {
-    font-size: 26px;
-  }
-  &__description {
-    font-size: 19px;
-  }
-  &__form {
-    input {
-      margin-bottom: 1rem;
+
+.newsletter-signup-banner {
+  $self: &;
+  &--footer {
+    a,
+    a:focus,
+    a:hover,
+    a:visited {
+     color: #fff;
+    }
+    color: #fff;
+    #{ $self }__name {
+      @include skin-typography($style: "footer-header-1");
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+    #{ $self }__description {
+      font-size: 19px;
+      &--footer {
+        color: #fff;
+      }
+    }
+    #{ $self }__form-wrapper {
+      &--footer {
+        label {
+          color: #fff;
+        }
+      }
+      input {
+        margin-bottom: 1rem;
+      }
+      .btn {
+        padding: 12px 27px;
+      }
+      .btn-primary,
+      .btn-primary:hover,
+      .btn-primary:visited,
+      .btn-primary:focus {
+        background-color: #fff;
+        color: $primary;
+      }
+      .btn-secondary,
+      .btn-secondary:hover,
+      .btn-secondary:visited,
+      .btn-secondary:focus {
+        background-color: #fff;
+        color: $primary;
+      }
     }
   }
 }
