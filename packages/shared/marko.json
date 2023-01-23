@@ -1,6 +1,0 @@
-{
-  "taglib-id": "@bizbash-media/package-global",
-  "taglib-imports": [
-    "./components/marko.json"
-  ]
-}

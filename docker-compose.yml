@@ -76,19 +76,3 @@ services:
     ports:
       - "12195:80"
       - "35195:35195"
-
-  biz:
-    <<: *node
-    <<: *site-cmd
-    working_dir: /root/sites/old.bizbash.com
-    environment:
-      <<: *env
-      <<: *env-tauron
-      PORT: 80
-      EXPOSED_PORT: 12196
-      LIVERELOAD_PORT: 35196
-      TENANT_KEY: bizbash_bzb
-      SITE_ID: 5b295afea1c1c62c008b4572
-    ports:
-      - "12196:80"
-      - "35196:35196"
