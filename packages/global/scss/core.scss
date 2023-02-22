@@ -10,8 +10,8 @@
 // Bottom Sticky Leader Board
 @import "../../node_modules/@parameter1/base-cms-marko-web-gam/scss/fixed-ad-bottom";
 // Reveal Ad CSS
-@import "../../node_modules/@parameter1/base-cms-marko-web-reveal-ad/scss/reveal-ad";
-@import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/components/reveal-ad";
+// @import "../../node_modules/@parameter1/base-cms-marko-web-reveal-ad/scss/reveal-ad";
+// @import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/components/reveal-ad";
 
 // package component css inclusions
 @import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/directory-facets";
@@ -32,6 +32,7 @@
 @import "./components/user";
 @import "./components/native-x-announcement";
 @import "./components/industry-buzz";
+@import "./components/reveal-ad";
 
 body {
   -webkit-font-smoothing: antialiased;
