@@ -3,7 +3,7 @@ version: '3.7'
 x-node-defaults: &node
   tty: true
   init: true
-  image: node:10.24
+  image: node:14.21
   entrypoint: ["node"]
   working_dir: /root
   restart: always
@@ -18,7 +18,6 @@ x-env-defaults: &env
   NEW_RELIC_ENABLED: ${NEW_RELIC_ENABLED-0}
   NEW_RELIC_LICENSE_KEY: ${NEW_RELIC_LICENSE_KEY-(unset)}
   NODE_ENV: development
-  # @todo the sendgrid values should be removed once the @parameter1/base-cms-mailer service is created.
   SENDGRID_API_KEY: ${SENDGRID_API_KEY-(unset)}
   SENDGRID_DEV_TO: support@parameter1.com
   YARN_CACHE_FOLDER: /.yarn-cache
@@ -40,8 +39,9 @@ x-env-development: &env-development
   SITEMAPS_URI: ${SITEMAPS_URI-http://host.docker.internal:10009}
 
 x-site-command: &site-cmd
-  entrypoint: ["node_modules/.bin/basecms-website"]
-  command: ["dev", "index.js"]
+  <<: *node
+  entrypoint: ["yarn"]
+  command: ["dev"]
 
 volumes:
   yarn-cache: {}
@@ -62,33 +62,13 @@ services:
       <<: *env
 
   bzb:
-    <<: *node
     <<: *site-cmd
     working_dir: /root/sites/bizbash.com
     environment:
       <<: *env
-      <<: *env-tauron
       PORT: 80
       EXPOSED_PORT: 12195
       LIVERELOAD_PORT: 35195
-      TENANT_KEY: bizbash_bzb
-      SITE_ID: 5b295afea1c1c62c008b4572
     ports:
       - "12195:80"
       - "35195:35195"
-
-  biz:
-    <<: *node
-    <<: *site-cmd
-    working_dir: /root/sites/old.bizbash.com
-    environment:
-      <<: *env
-      <<: *env-tauron
-      PORT: 80
-      EXPOSED_PORT: 12196
-      LIVERELOAD_PORT: 35196
-      TENANT_KEY: bizbash_bzb
-      SITE_ID: 5b295afea1c1c62c008b4572
-    ports:
-      - "12196:80"
-      - "35196:35196"

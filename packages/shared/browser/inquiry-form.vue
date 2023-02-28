@@ -90,8 +90,8 @@
         <option disabled value="">
           Please select...
         </option>
-        <option v-for="eventType in eventTypes" :key="eventType">
-          {{ eventType }}
+        <option v-for="et in eventTypes" :key="et">
+          {{ et }}
         </option>
       </select>
     </div>
@@ -156,8 +156,8 @@ import recaptchaGetToken from '@parameter1/base-cms-marko-web-recaptcha/browser/
 import FormMixin from '@parameter1/base-cms-marko-web-inquiry/browser/form-mixin';
 
 export default {
-  inject: ['EventBus'],
   mixins: [FormMixin],
+  inject: ['EventBus'],
   props: {
     siteKey: {
       type: String,

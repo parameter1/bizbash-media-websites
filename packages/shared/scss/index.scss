@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,700,700i|Open+Sans:400,400i,700,700i|Roboto+Condensed:700,400|Oswald:500,700&display=swap");
-@import "../../node_modules/@parameter1/base-cms-marko-web-theme-default/scss/functions";
+@import "@parameter1/base-cms-marko-web-theme-default/scss/functions";
 
 // Bizbash specific vars
 $bizbash-letter-spacing:  .1px;
@@ -195,11 +195,11 @@ $theme-site-header-breakpoints: map-merge(
   $theme-site-header-breakpoints
 );
 
-@import "../../node_modules/@parameter1/base-cms-marko-web-social-sharing/scss/buttons";
-@import "../../node_modules/@parameter1/base-cms-marko-web-theme-default/skins/orion/skin";
-@import "../../node_modules/@parameter1/base-cms-marko-web-gam/scss/fixed-ad-bottom";
-@import "../../node_modules/@parameter1/base-cms-marko-web-gtm/scss/slot";
-@import "../../node_modules/@parameter1/base-cms-marko-web-reveal-ad/scss/reveal-ad";
+@import "@parameter1/base-cms-marko-web-social-sharing/scss/buttons";
+@import "@parameter1/base-cms-marko-web-theme-default/skins/orion/skin";
+@import "@parameter1/base-cms-marko-web-gam/scss/fixed-ad-bottom";
+@import "@parameter1/base-cms-marko-web-gtm/scss/slot";
+@import "@parameter1/base-cms-marko-web-reveal-ad/scss/reveal-ad";
 @import "components/ads";
 @import "components/carousel";
 @import "components/directory";
@@ -702,14 +702,14 @@ body {
 // @todo Move to core; fix embedded images in paragraphs
 .page-body-image {
   @include media-breakpoint-down(xs) {
-    margin-right: -#{$grid-gutter-width / 2};
-    margin-left: -#{$grid-gutter-width / 2};
+    margin-right: -#{$grid-gutter-width * 0.5};
+    margin-left: -#{$grid-gutter-width * 0.5};
   }
   &__caption,
   &__credit {
     @include media-breakpoint-down(xs) {
-      padding-right: $grid-gutter-width / 2;
-      padding-left: $grid-gutter-width / 2;
+      padding-right: $grid-gutter-width * 0.5;
+      padding-left: $grid-gutter-width * 0.5;
     }
   }
 }

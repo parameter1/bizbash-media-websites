@@ -16,7 +16,7 @@
       }
     }
   }
-  $spacing: $grid-gutter-width / 4;
+  $spacing: $grid-gutter-width * 0.25;
 
   &__row {
     display: flex;

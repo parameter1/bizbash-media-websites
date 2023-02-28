@@ -30,7 +30,7 @@ module.exports = async ({
   }
 
   // Apply terms.
-  const fq = facets.filter(f => (f && f.field && f.value)).reduce((arr, f) => {
+  const fq = facets.filter((f) => (f && f.field && f.value)).reduce((arr, f) => {
     arr.push(`(term field=${f.field} '${f.value}')`);
     return arr;
   }, [`(term field=type '${contentType}')`]);

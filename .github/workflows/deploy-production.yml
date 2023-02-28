@@ -6,78 +6,83 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
-  vars:
+  version:
     runs-on: ubuntu-latest
     steps:
     - id: tag_version
-      run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
+      run: |
+        REF=$(echo $GITHUB_REF | cut -d / -f 3)
+        [[ "$GITHUB_REF" =~ ^refs/tags.*$ ]] && VERSION="$REF" || VERSION="${REF}-${GITHUB_SHA::7}"
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
     outputs:
-      version: ${{ steps.tag_version.outputs.VERSION }}
-      environment: production
+      version: ${{ steps.tag_version.outputs.version }}
 
-  pre-deploy:
-    needs: [vars]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Notify start
-        run: npx @parameter1/base-cms-website-deployment-tool notify-started
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          ENVIRONMENT: ${{ needs.vars.outputs.environment }}
-          RANCHER_CLUSTERID: ${{ secrets.RANCHER_CLUSTERID_BASECMS }}
-          TRAVIS_REPO_SLUG: ${{ github.repository }}
-          TRAVIS_TAG: ${{ needs.vars.outputs.version }}
-
-  deploy:
-    needs: [vars, pre-deploy]
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        namespace:
-          - websites
-        site:
-          - bizbash.com
-    steps:
-      - uses: actions/checkout@v2
-      - name: Deploy to Kubernetes
-        run: npx @parameter1/base-cms-website-deployment-tool deploy ${{ matrix.site }} ${{ matrix.namespace }}
-        env:
-          DOCKER_ORG: ${{ secrets.DOCKER_ORG }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-          ENVIRONMENT: ${{ needs.vars.outputs.environment }}
-          RANCHER_CLUSTERID: ${{ secrets.RANCHER_CLUSTERID_BASECMS }}
-          RANCHER_TOKEN: ${{ secrets.RANCHER_TOKEN }}
-          RANCHER_URL: ${{ secrets.RANCHER_URL }}
-          TRAVIS_TAG: ${{ needs.vars.outputs.version }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          TRAVIS_REPO_SLUG: ${{ github.repository }}
-          FORCE_DEPLOYMENT: 0
+  notify-start:
+    needs: [version]
+    uses: parameter1/actions/.github/workflows/notify-start.yml@main
+    secrets: inherit
+    with:
+      version: ${{ needs.version.outputs.version }}
 
   post-deploy-failure:
     if: failure()
-    needs: [vars, deploy]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Notify failure
-        run: npx @parameter1/base-cms-website-deployment-tool notify-failed
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          ENVIRONMENT: ${{ needs.vars.outputs.environment }}
-          RANCHER_CLUSTERID: ${{ secrets.RANCHER_CLUSTERID_BASECMS }}
-          TRAVIS_REPO_SLUG: ${{ github.repository }}
-          TRAVIS_TAG: ${{ needs.vars.outputs.version }}
+    needs: [notify-start, deploy-sites]
+    uses: parameter1/actions/.github/workflows/notify-fail.yml@main
+    secrets: inherit
+    with:
+      slack-thread: ${{ needs.notify-start.outputs.slack-thread }}
 
-  post-deploy-success:
+  post-deploy-complete:
     if: success()
-    needs: [vars, deploy]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Notify success
-        run: npx @parameter1/base-cms-website-deployment-tool notify-finished
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          ENVIRONMENT: ${{ needs.vars.outputs.environment }}
-          RANCHER_CLUSTERID: ${{ secrets.RANCHER_CLUSTERID_BASECMS }}
-          TRAVIS_REPO_SLUG: ${{ github.repository }}
-          TRAVIS_TAG: ${{ needs.vars.outputs.version }}
+    needs: [notify-start, deploy-sites]
+    uses: parameter1/actions/.github/workflows/notify-complete.yml@main
+    secrets: inherit
+    with:
+      slack-thread: ${{ needs.notify-start.outputs.slack-thread }}
+
+  ######################
+  # Add websites here! #
+  ######################
+
+  build-sites:
+    needs: [version]
+    uses: parameter1/actions/.github/workflows/website-build-push-test.yml@main
+    strategy:
+      matrix:
+        ###############################################
+        #v# Make sure this matches the site matrix! #v#
+        ###############################################
+        site:
+          - { dir: bizbash.com, stack: tauron, id: 5b295afea1c1c62c008b4572, account: bizbash, tenant: bizbash_bzb, rancher_label: bizbash-media-bizbash.com }
+        ###############################################
+        #^# Make sure this matches the site matrix! #^#
+        ###############################################
+    with:
+      ecr_registry: ${{ vars.AWS_ECR_REGISTRY }}
+      docker_image: ${{ vars.AWS_ECR_REGISTRY }}/base-cms-websites:${{ matrix.site.account }}-${{ matrix.site.dir }}-${{ needs.version.outputs.version }}
+      site_id: ${{ matrix.site.id }}
+      site_host: ${{ matrix.site.dir }}
+      infra_stack: ${{ matrix.site.stack }}
+      tenant_key: ${{ matrix.tenant }}
+      push: true
+    secrets: inherit
+
+  deploy-sites:
+    needs: [version, build-sites]
+    uses: parameter1/actions/.github/workflows/website-deploy-production.yml@main
+    strategy:
+      matrix:
+        ###############################################
+        #v# Make sure this matches the site matrix! #v#
+        ###############################################
+        site:
+          - { dir: bizbash.com, stack: tauron, id: 5b295afea1c1c62c008b4572, account: bizbash, tenant: bizbash_bzb, rancher_label: bizbash-media-bizbash.com }
+        ###############################################
+        #^# Make sure this matches the site matrix! #^#
+        ###############################################
+    with:
+      docker_image: ${{ vars.AWS_ECR_REGISTRY }}/base-cms-websites:${{ matrix.site.account }}-${{ matrix.site.dir }}-${{ needs.version.outputs.version }}
+      infra_stack: ${{ matrix.site.stack }}
+      rancher_label_key: basecms-website
+      rancher_label_val: ${{ matrix.site.rancher_label }}
+    secrets: inherit

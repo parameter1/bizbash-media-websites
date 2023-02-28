@@ -18,7 +18,7 @@ const types = [
   },
   {
     alias: 'white-papers',
-    name: 'White Papers',
+    name: 'White Papers & E-books',
     queryParams: {
       includeContentTypes: ['Whitepaper'],
     },

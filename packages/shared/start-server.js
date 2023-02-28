@@ -45,6 +45,6 @@ module.exports = (options = {}) => {
       const idxConfig = getAsObject(options, 'siteConfig.identityX');
       identityX(app, idxConfig, { templates: idxRouteTemplates });
     },
-    onAsyncBlockError: e => newrelic.noticeError(e),
+    onAsyncBlockError: (e) => newrelic.noticeError(e),
   });
 };

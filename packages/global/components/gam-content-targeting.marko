@@ -1,0 +1,28 @@
+import { getAsObject, get, getAsArray } from "@parameter1/base-cms-object-path";
+import gamContentCategories from "../utils/gam-content-categories";
+
+$ const content = getAsObject(input, "obj");
+$ const { id, type, primarySection } = content;
+$ const companyIds = getAsArray(content, "companies.edges").map(({ node }) => node.id);
+$ const companyId = get(content, "company.id");
+$ const categories = gamContentCategories(content);
+$ if (companyId) companyIds.unshift(companyId);
+$ const keyValues = {
+  // legacy content id key
+  cont_id: id,
+  // content id key
+  content_id: id,
+  // legacy content type key
+  cont_type: type,
+  // content type key
+  content_type: type,
+  // legacy section id key
+  sect_id: primarySection.id,
+  primary_section_id: primarySection.id,
+  ...(companyIds.length && {
+    companies: companyIds.join("|"),
+    Company: companyIds.shift(),
+  }),
+  ...(categories && { ...categories }),
+};
+<marko-web-gam-targeting key-values=keyValues />

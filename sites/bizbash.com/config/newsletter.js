@@ -1,8 +1,7 @@
-
 const defaults = {
   // disabled: process.env.DISABLE_IDX_NEWSLETTER_SIGNUP === 'true',
   name: 'Don’t Miss Out',
-  description: 'BizBash editors search the globe to deliver ideas, inspiration and the hottest industry events directly to your inbox.',
+  description: 'BizBash editors search the globe to deliver ideas, inspiration, and the hottest industry events directly to your inbox.',
 };
 
 module.exports = {

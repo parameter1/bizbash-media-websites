@@ -2,25 +2,27 @@
 @import "variables";
 
 // import theme css
-@import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/core";
+@import "@parameter1/base-cms-marko-web-theme-monorail/scss/core";
 
 // import theme magazine css
-@import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail-magazine/scss/index";
+@import "@parameter1/base-cms-marko-web-theme-monorail-magazine/scss/index";
 
 // Bottom Sticky Leader Board
-@import "../../node_modules/@parameter1/base-cms-marko-web-gam/scss/fixed-ad-bottom";
+@import "@parameter1/base-cms-marko-web-gam/scss/fixed-ad-bottom";
 // Reveal Ad CSS
-// @import "../../node_modules/@parameter1/base-cms-marko-web-reveal-ad/scss/reveal-ad";
-// @import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/components/reveal-ad";
+@import "@parameter1/base-cms-marko-web-reveal-ad/scss/reveal-ad";
+@import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/reveal-ad";
 
 // package component css inclusions
-@import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/directory-facets";
-@import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/company-search";
-@import "../../node_modules/@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/section-search";
+@import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/directory-facets";
+@import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/company-search";
+@import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/section-search";
 
 // skin components
+@import "./components/disable-reskin-cls-prevention";
 @import "./components/section-feed-upcoming";
 @import "./components/content-meter";
+@import "./components/content-page";
 @import "./components/directory";
 @import "./components/directory-section-feed";
 @import "./components/content-images";
@@ -453,16 +455,23 @@ label {
 .section-card-list,
 .magazine-issues,
 .industry-buzz  {
-  &__header {
+  &__header, &__title {
     font-size: 48px;
     @media (max-width: map-get($theme-site-header-breakpoints, small-logo)) {
       font-size: 36px;
     }
+    a {
+      color: #1f2937;
+      text-decoration: none;
+    }
   }
   &__view-more {
     font-size: 18px;
+    a {
+      color: #0072bb;
+      text-decoration: none;
+    }
   }
-
 }
 .section-cards {
   &__header {

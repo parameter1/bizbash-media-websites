@@ -1,0 +1,25 @@
+.page-contents {
+  .primary-image {
+    &__image-credit {
+      display: block;
+      margin-right: .5rem;
+    }
+    &__image-credit::before {
+      content: "";
+      display: none;
+    }
+    > :last-child {
+      border-bottom: 1px solid #ccc;
+    }
+  }
+
+  .credit {
+    display: inline-block;
+    margin-right: .5rem;
+  }
+
+  .credit::before {
+    content: "";
+    display: none;
+  }
+}

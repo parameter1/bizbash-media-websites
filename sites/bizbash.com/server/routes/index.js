@@ -1,4 +1,3 @@
-const itemIdHandler = require('@bizbash-media/package-global/middleware/item-id-handler');
 const directory = require('@bizbash-media/package-global/routes/directory');
 const home = require('./home');
 const content = require('./content');
@@ -7,8 +6,6 @@ const publishedContent = require('./published-content');
 const websiteSections = require('./website-section');
 
 module.exports = (app) => {
-  // Content Redirect Handler
-  app.use(itemIdHandler());
   // Homepage
   home(app);
 

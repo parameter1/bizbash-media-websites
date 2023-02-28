@@ -28,8 +28,8 @@ $primary: #0072bb;
 $skin-font-family-primary: "Oswald", oswald-fallback, sans-serif !default;
 $skin-font-family-secondary: "Oswald", oswald-fallback, sans-serif !default;
 
-// $theme-content-body-font: "Open Sans", open-sans-fallback, sans-serif;
-$theme-content-body-font: "Oswald", open-sans-fallback, sans-serif;
+$theme-content-body-font: "Open Sans", open-sans-fallback, sans-serif;
+// $theme-content-body-font: "Oswald", open-sans-fallback, sans-serif;
 $black: #1f2937;
 $body-color: $black;
 
@@ -112,7 +112,7 @@ $theme-site-navbar-primary-font-weight: 600;
 
 $theme-page-deck-color: #6b7280;
 
-@import "../../node_modules/@bizbash-media/package-global/scss/core";
+@import "@bizbash-media/package-global/scss/core";
 
 .document-container {
   background-color: transparent;
@@ -161,11 +161,11 @@ $theme-page-deck-color: #6b7280;
         padding-left: 0;
       }
       &__right {
-        .marko-web-icon svg {  /* stylelint-disable-line selector-max-combinators */
+        .marko-web-icon svg { /* stylelint-disable-line selector-max-combinators,selector-max-compound-selectors */
           fill: #f8fafc;
         }
         .btn,
-        #{ $self }__toggler { /* stylelint-disable-line selector-max-combinators */
+        #{ $self }__toggler { /* stylelint-disable-line selector-max-combinators,selector-max-compound-selectors */
           background-color: $primary;
         }
       }
@@ -211,6 +211,13 @@ $theme-page-deck-color: #6b7280;
     max-width: 1000px;
   }
   &__section {
+    &--row-reverse {
+      .content-card-deck {
+        .card-deck-flow {
+          flex-direction: row-reverse;
+        }
+      }
+    }
     &--background-color {
       .section-card-list,
       .content-card-deck {

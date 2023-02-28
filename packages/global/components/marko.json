@@ -8,6 +8,10 @@
   "<global-sponsored-label-logo>": {
     "template": "./sponsored-label-logo.marko"
   },
+  "<global-gam-content-targeting-element>": {
+    "template": "./gam-content-targeting.marko",
+    "@obj": "object"
+  },
   "<global-sponsored-section-logo>": {
     "template": "./sponsored-section-logo.marko"
   },

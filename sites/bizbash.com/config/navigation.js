@@ -16,6 +16,8 @@ const resources = [
   { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazine' },
   { href: '/events', label: 'Events' },
   { href: 'https://www.bizbashlive.com/EEA21', label: 'Awards', target: '_blank' },
+  { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise', target: '_blank' },
+  { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Subscribe', target: '_blank' },
 ];
 
 const utilities = [
@@ -213,6 +215,8 @@ module.exports = {
       label: 'Topics',
       items: [
         ...topics,
+        { href: '/industry-buzz', label: 'Industry Buzz' },
+        { href: '/bizbash-lists', label: 'BizBash Lists' },
       ],
     },
     midColumn: {

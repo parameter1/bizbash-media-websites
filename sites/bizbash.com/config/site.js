@@ -37,14 +37,6 @@ module.exports = {
       width: '149',
       height: '45',
     },
-    corporate: {
-      alt: 'Bonhill Logo',
-      href: 'https://www.bonhillplc.com',
-      src: 'https://p1-cms-assets.imgix.net/files/base/bonhill/all/image/static/bonhill-logo.svg?w=200&auto=format,compress',
-      srcset: [
-        'https://p1-cms-assets.imgix.net/files/base/bonhill/all/image/static/bonhill-logo.svg?w=200&auto=format,compress&dpr=2 2x',
-      ],
-    },
   },
   socialMediaLinks: [
     { provider: 'instagram', href: 'https://www.instagram.com/bizbash' },
