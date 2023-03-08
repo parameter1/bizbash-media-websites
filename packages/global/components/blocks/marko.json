@@ -1,5 +1,6 @@
 {
   "taglib-imports": [
+    "./content-page/marko.json",
     "./load-more/marko.json"
   ],
   "<global-newsletter-signup-banner-large-block>": {

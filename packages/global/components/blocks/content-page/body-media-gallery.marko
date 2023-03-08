@@ -1,0 +1,26 @@
+import { getAsArray, getAsObject } from "@parameter1/base-cms-object-path";
+import { buildImgixUrl } from "@parameter1/base-cms-image";
+
+$ const block = 'page-body-media-gallery';
+$ const gallery = getAsObject(input, 'gallery');
+$ const images = getAsArray(gallery, 'images.edges').map(({ node }) => node);
+
+<if(images.length)>
+  <div class=block>
+    <h6 class=`${block}__title`>
+      <marko-web-content-short-name link=true obj=gallery />
+    </h6>
+    <div class=`${block}__row`>
+      <for|image| of=images>
+        <div class=`${block}__col`>
+          <marko-web-link class=`${block}__link` href=`${gallery.canonicalPath}#image-${image.id}` title="View Image in Gallery" >
+            <img src=buildImgixUrl(image.src, input.imageOptions) alt=image.alt />
+            <div class=`${block}__overlay`>
+              <span class=`${block}__image-name`>${image.displayName}</span>
+            </div>
+          </marko-web-link>
+        </div>
+      </for>
+    </div>
+  </div>
+</if>

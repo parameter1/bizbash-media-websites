@@ -184,6 +184,15 @@ $ const shouldInjectAds = ["article", "blog", "video", "media-gallery", "news", 
                   </if>
                 </if>
 
+                <if(content.type === 'top-list')>
+                  $ const galleries = getAsArray(content, 'relatedTo.edges').map(({ node }) => node).filter(node => node.type === 'media-gallery');
+                  <if(galleries.length)>
+                    <for|gallery| of=galleries>
+                      <global-body-media-gallery-block gallery=gallery />
+                    </for>
+                  </if>
+                </if>
+
                 <if(displayReadNext)>
                   <theme-read-next-block
                     content-id=id

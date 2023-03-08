@@ -41,10 +41,17 @@ $ const headerColClass = promos ? `col-lg-${4 - promos.slice(1).length}` : "col-
                     />
                   </a>
                 </if>
-                <if(promo.callToAction)>
+                <if(promo.callToActionA)>
                   <marko-web-block class="subscribe-box--call-to-action">
                     <a href=promo.link title=promo.title>
-                      ${promo.callToAction}
+                      ${promo.callToActionA}
+                    </a>
+                  </marko-web-block>
+                </if>
+                <if(promo.callToActionB)>
+                  <marko-web-block class="subscribe-box--call-to-action">
+                    <a href=promo.link title=promo.title>
+                      ${promo.callToActionB}
                     </a>
                   </marko-web-block>
                 </if>

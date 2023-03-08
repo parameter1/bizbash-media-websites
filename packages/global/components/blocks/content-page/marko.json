@@ -1,0 +1,12 @@
+{
+  "<global-body-media-gallery-block>": {
+    "template": "./body-media-gallery.marko",
+    "@gallery": "array",
+    "@image-options": {
+      "type": "object",
+      "default-value": {
+          "w": 352, "h": 198, "fit": "crop", "crop": "focalpoint", "fpX": 0.5, "fpY": 0.5
+      }
+    }
+  }
+}

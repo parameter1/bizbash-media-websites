@@ -79,8 +79,13 @@ module.exports = {
   promos: [
     {
       title: 'Advertise With Us',
-      callToAction: 'Advertise With Us',
+      callToActionA: 'Advertise With Us',
       link: 'https://www.bizbash.com/page/advertise-with-us',
+    },
+    {
+      title: 'Events',
+      callToActionB: 'Events',
+      link: 'https://www.bizbash.com/events',
     },
   ],
   user: {
