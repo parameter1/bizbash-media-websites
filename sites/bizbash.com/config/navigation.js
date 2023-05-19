@@ -7,6 +7,9 @@ const topics = [
   { href: '/event-tech-virtual', label: 'Event Tech & Virtual' },
   { href: '/venues-destinations', label: 'Venues & Destinations' },
   { href: '/meetings-trade-shows', label: 'Meetings & Trade Shows' },
+  { href: '/bizbash-sports', label: 'BizBash Sports' },
+  { href: '/page/build-your-brand-with-bizbash', label: 'Advertise' },
+  { href: '/events', label: 'Events' },
 ];
 
 const resources = [
@@ -15,15 +18,14 @@ const resources = [
   { href: '/on-demand/gathergeeks', label: 'Podcast' },
   { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazine' },
   { href: '/events', label: 'Events' },
-  { href: 'https://www.bizbashlive.com/EEA21', label: 'Awards', target: '_blank' },
-  { href: 'https://www.bizbashlive.com/advertise', label: 'Advertise', target: '_blank' },
+  { href: 'https://www.bizbashlive.com/11EEA', label: 'Awards', target: '_blank' },
   { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Subscribe', target: '_blank' },
 ];
 
 const utilities = [
-  { href: 'https://www.bizbash.com/page/about-us', label: 'About Us' },
-  { href: 'https://www.bizbash.com/page/advertise-with-us', label: 'Advertise With Us' },
-  { href: 'https://www.bizbash.com/page/get-featured', label: 'Get Featured' },
+  { href: '/page/about-us', label: 'About Us' },
+  { href: '/page/build-your-brand-with-bizbash', label: 'Advertise' },
+  { href: '/page/get-featured', label: 'Get Featured' },
   { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Newsletter Signup', target: '_blank' },
   { href: 'https://cloud.mail.bizbash.com/BizbashMagazineSubscribe', label: 'Subscribe to Magazine', target: '_blank' },
 ];
@@ -76,18 +78,7 @@ const mobileMenu = {
 };
 
 module.exports = {
-  promos: [
-    {
-      title: 'Advertise With Us',
-      callToActionA: 'Advertise With Us',
-      link: 'https://www.bizbash.com/page/advertise-with-us',
-    },
-    {
-      title: 'Events',
-      callToActionB: 'Events',
-      link: 'https://www.bizbash.com/events',
-    },
-  ],
+  promos: [],
   user: {
     items: [
       // {

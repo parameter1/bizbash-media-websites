@@ -15,7 +15,7 @@ module.exports = ({
         [300, 50],
       ],
       sizeMapping: [
-        { viewport: [980, 0], size: [970, 90] },
+        { viewport: [980, 0], size: [[970, 90], [728, 90]] },
         { viewport: [320, 0], size: [[300, 50], [320, 50]] },
       ],
     })

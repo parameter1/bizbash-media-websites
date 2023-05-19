@@ -105,7 +105,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
             />
           </@section>
 
-          <@section modifiers=["row-reverse"]>
+          <@section>
             <theme-content-card-deck-block
               query-params={ limit: 3, includeContentTypes: ["Whitepaper", "Ebook"], queryFragment }
               query-name="all-published-content"
@@ -119,10 +119,11 @@ $ const promise = websiteSectionContentLoader(apollo, {
 
           <@section modifiers=["background-color"]>
             <theme-section-card-list-block
-              alias="on-demand/gathergeeks"
+              alias="on-demand/podcasts"
               link-header=true
               description="A place where people passionate about the power of live experiences come together."
               button-class="btn btn-primary"
+              image-props={ ar: "16:9" }
             />
           </@section>
 
@@ -174,6 +175,10 @@ $ const promise = websiteSectionContentLoader(apollo, {
 
           <@section>
             <theme-section-forbes-block alias="meetings-trade-shows" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } reverse=true />
+          </@section>
+
+          <@section>
+            <theme-section-forbes-block alias="bizbash-sports" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } />
           </@section>
 
         </marko-web-page-wrapper>

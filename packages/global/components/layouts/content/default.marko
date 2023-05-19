@@ -8,7 +8,7 @@ $ const { id, type, pageNode, showReadNextBlock, showBottomAdBlock, showTopStory
 $ const sections = getAsArray(input, "sections");
 
 $ const displayPrimaryImage = ["media-gallery"].includes(type) ? false : true;
-$ const displayPublishedDate = ["company", "contact", "whitepaper"].includes(type) ? false : true;
+$ const displayPublishedDate = ["company", "contact", "whitepaper", "venue", "supplier"].includes(type) ? false : true;
 $ const displayReadNext = showReadNextBlock && ["article"].includes(type);
 $ const displaySocialShare = ["contact"].includes(type) ? false : true;
 $ const shouldInjectAds = ["article", "blog", "video", "media-gallery", "news", "podcast"].includes(type);
