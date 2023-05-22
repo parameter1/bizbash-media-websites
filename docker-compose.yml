@@ -13,6 +13,7 @@ x-node-defaults: &node
     - yarn-cache:/.yarn-cache
 
 x-env-defaults: &env
+  CSS_MODE: ${CSS_MODE-optimized}
   BING_API_KEY: ${BING_API_KEY-}
   GTM_CONTAINER_ID: ${GTM_CONTAINER_ID}
   NEW_RELIC_ENABLED: ${NEW_RELIC_ENABLED-0}
