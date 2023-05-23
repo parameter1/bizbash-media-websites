@@ -650,13 +650,6 @@ label {
 }
 
 .node-list {
-  &--latest-content-list {
-    .node-list {
-      &__header {
-        padding-top: 0;
-      }
-    }
-  }
   &--latest-opinion-list {
     .node {
       &__image {
