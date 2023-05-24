@@ -20,6 +20,8 @@
 /*! critical:start|user */
 /*! critical:start|content.product */
 /*! critical:start|content.company */
+/*! critical:start|content.venue */
+/*! critical:start|content.supplier */
 @import "bootstrap/scss/custom-forms";
 /*! critical:end */
 /*! critical:start|website-section */
@@ -27,15 +29,25 @@
 /*! critical:start|user */
 /*! critical:start|content.product */
 /*! critical:start|content.company */
+/*! critical:start|content.venue */
+/*! critical:start|content.supplier */
 @import "bootstrap/scss/forms";
 @import "bootstrap/scss/images";
 @import "bootstrap/scss/input-group";
 @import "bootstrap/scss/tables";
+/*! critical:end */
+
 /*! critical:start|user */
 /*! critical:start|error */
+/*! critical:start|events */
 /*! critical:start|website-section.directory */
+/*! critical:start|website-section.venue-directory */
+/*! critical:start|website-section.supplier-directory */
 /*! critical:start|subscribe */
 /*! critical:start|content */
+/*! critical:start|magazine */
+/*! critical:start|magazine-issue */
+/*! critical:start|magazine-publication */
 @import "bootstrap/scss/breadcrumb";
 /*! critical:end */
 @import "bootstrap/scss/alert";
@@ -78,9 +90,15 @@
 /*! critical:end */
 /*! critical:start|user */
 /*! critical:start|error */
+/*! critical:start|events */
 /*! critical:start|website-section.directory */
+/*! critical:start|website-section.venue-directory */
+/*! critical:start|website-section.supplier-directory */
 /*! critical:start|subscribe */
 /*! critical:start|content */
+/*! critical:start|magazine */
+/*! critical:start|magazine-issue */
+/*! critical:start|magazine-publication */
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/breadcrumbs";
 /*! critical:end */
 
@@ -94,6 +112,8 @@
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/lazyload";
 /*! critical:end */
 /*! critical:start|magazine */
+/*! critical:start|magazine-issue */
+/*! critical:start|magazine-publication */
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/magazine-publication-buttons";
 /*! critical:end */
 /*! critical:start */
@@ -117,11 +137,14 @@
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/pagination-controls";
 /*! critical:start|search */
 /*! critical:start|website-section.directory */
+/*! critical:start|website-section.venue-directory */
+/*! critical:start|website-section.supplier-directory */
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/search-page";
 /*! critical:end */
 
 /*! critical:start|user */
 /*! critical:start|error */
+/*! critical:start|events */
 /*! critical:start|subscribe */
 /*! critical:start|content.webinar */
 /*! critical:start|site-map */
@@ -146,6 +169,8 @@
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/content-card-deck";
 /*! critical:start|content.company */
 /*! critical:start|content.product */
+/*! critical:start|content.venue */
+/*! critical:start|content.supplier */
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/company-inquiry-form";
 /*! critical:end */
 
@@ -157,6 +182,8 @@
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/latest-podcast";
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/latest-products-feed";
 /*! critical:start|magazine */
+/*! critical:start|magazine-issue */
+/*! critical:start|magazine-publication */
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/magazine-publication-card";
 /*! critical:end */
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/more-products";
@@ -169,7 +196,7 @@
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/newsletter-signup-site-footer";
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/node-author";
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/opinion";
-/*! critical:start|content.whitepaper */
+/*! critical:start|content */
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/primary-image";
 /*! critical:end */
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/products";
@@ -182,6 +209,7 @@
 /*! critical:start|website-section */
 /*! critical:start|search */
 /*! critical:start|content.contact */
+/*! critical:start|events */
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/section-feed";
 /*! critical:end */
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/section-list";
@@ -195,7 +223,10 @@
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/white-papers";
 
 // 7. selectively import theme _flow_ items. mark as critical when necessary
+/*! critical:start|magazine-issue */
+/*! critical:start|magazine-publication */
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/flows/card-deck";
+/*! critical:end */
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/flows/column-list";
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/flows/featured";
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/flows/hero";
@@ -205,11 +236,15 @@
 
 // magazine component
 /*! critical:start|magazine */
+/*! critical:start|magazine-issue */
+/*! critical:start|magazine-publication */
 @import "@parameter1/base-cms-marko-web-theme-monorail-magazine/scss/index";
 /*! critical:end */
 
 // package component css inclusions
 /*! critical:start|website-section.directory */
+/*! critical:start|website-section.venue-directory */
+/*! critical:start|website-section.supplier-directory */
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/directory-facets";
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/company-search";
 @import "@parameter1/base-cms-marko-web-theme-monorail/scss/components/blocks/section-search";
@@ -226,18 +261,26 @@
 /*! critical:end */
 
 /*! critical:start|website-section.directory */
+/*! critical:start|website-section.venue-directory */
+/*! critical:start|website-section.supplier-directory */
 @import "./components/directory";
 @import "./components/directory-section-feed";
 /*! critical:end */
 /*! critical:start|content */
 @import "./components/content-images";
+/*! critical:end */
 /*! critical:start|website-section.directory */
+/*! critical:start|website-section.venue-directory */
+/*! critical:start|website-section.supplier-directory */
 @import "./components/site-footer";
+/*! critical:end */
 /*! critical:start */
 @import "./components/site-navbar";
 @import "./components/site-navbar-c";
+/*! critical:end */
 // @import "./components/sticky-footer";
 @import "./components/user";
+/*! critical:start */
 @import "./components/native-x-announcement";
 /*! critical:end */
 /*! critical:start|home */

@@ -11,7 +11,7 @@ $marko-web-document-container-max-width: 1300px;
 $primary: #0072bb;
 
 @import "@bizbash-media/package-global/scss/core";
-
+/*! critical:start */
 .document-container {
   background-color: transparent;
 }
@@ -175,6 +175,7 @@ $primary: #0072bb;
     }
   }
 }
+/*! critical:end */
 
 // .marko-web-gam-fixed-ad-bottom {
 //   &__container {
