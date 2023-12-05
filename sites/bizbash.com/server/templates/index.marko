@@ -13,6 +13,7 @@ $ const { id, alias, name, pageNode } = input;
 $ const sections = getAsArray(input, "sections");
 $ const excludedSectionIds = [];
 $ const { GAM, apollo, i18n } = out.global;
+$ const optionName = ["Pinned", "Standard"];
 
 $ const rightRailHeader = defaultValue(input.rightRailHeader, "Latest News");
 
@@ -128,11 +129,11 @@ $ const promise = websiteSectionContentLoader(apollo, {
           </@section>
 
           <@section>
-            <theme-section-forbes-block alias="production-strategy" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } />
+            <theme-section-forbes-block alias="production-strategy" link-header=true with-sponsored=true query-params={ excludeContentIds: ids, optionName } />
           </@section>
 
           <@section>
-            <theme-section-forbes-block alias="catering-design" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } reverse=true />
+            <theme-section-forbes-block alias="catering-design" link-header=true with-sponsored=true query-params={ excludeContentIds: ids, optionName } reverse=true />
           </@section>
 
           <@section modifiers=["background-color"]>
@@ -147,7 +148,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
           </@section>
 
           <@section>
-            <theme-section-forbes-block alias="event-tech-virtual" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } reverse=true />
+            <theme-section-forbes-block alias="event-tech-virtual" link-header=true with-sponsored=true query-params={ excludeContentIds: ids, optionName } reverse=true />
           </@section>
 
           $ const publicationIds = site.get("magazine.publicationIds");
@@ -162,7 +163,7 @@ $ const promise = websiteSectionContentLoader(apollo, {
           </if>
 
           <@section>
-            <theme-section-forbes-block alias="venues-destinations" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } />
+            <theme-section-forbes-block alias="venues-destinations" link-header=true with-sponsored=true query-params={ excludeContentIds: ids, optionName } />
           </@section>
 
           <@section modifiers=["background-color"]>
@@ -174,11 +175,11 @@ $ const promise = websiteSectionContentLoader(apollo, {
           </@section>
 
           <@section>
-            <theme-section-forbes-block alias="meetings-trade-shows" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } reverse=true />
+            <theme-section-forbes-block alias="meetings-trade-shows" link-header=true with-sponsored=true query-params={ excludeContentIds: ids, optionName } reverse=true />
           </@section>
 
           <@section>
-            <theme-section-forbes-block alias="bizbash-sports" link-header=true with-sponsored=true query-params={ excludeContentIds: ids } />
+            <theme-section-forbes-block alias="bizbash-sports" link-header=true with-sponsored=true query-params={ excludeContentIds: ids, optionName } />
           </@section>
 
         </marko-web-page-wrapper>
