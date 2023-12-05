@@ -5,7 +5,6 @@ $ const sections = getAsArray(input, "sections");
 
 $ const { pagination: p } = out.global;
 $ const perPage = 12;
-$ const optionName = ["Pinned", "Standard"];
 
 <global-website-section-default-layout
   id=id
@@ -14,7 +13,7 @@ $ const optionName = ["Pinned", "Standard"];
   page-node=pageNode
 >
   <@head>
-    <theme-section-feed-block|{ totalCount }| alias=alias count-only=true query-params={ optionName }>
+    <theme-section-feed-block|{ totalCount }| alias=alias count-only=true>
       <theme-pagination-controls
         per-page=perPage
         total-count=totalCount
@@ -55,7 +54,7 @@ $ const optionName = ["Pinned", "Standard"];
       />
     </if>
 
-    <global-section-feed-wrapper aliases=aliases alias=alias query-params={ optionName }>
+    <global-section-feed-wrapper aliases=aliases alias=alias>
       <@rail>
         <theme-gam-define-display-ad
           name="rail1"
