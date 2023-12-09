@@ -33,7 +33,7 @@
     "@parameter1/base-cms-marko-web-reveal-ad": "^4.40.3",
     "@parameter1/base-cms-marko-web-search": "^4.40.3",
     "@parameter1/base-cms-marko-web-social-sharing": "^4.40.3",
-    "@parameter1/base-cms-marko-web-theme-monorail": "^4.40.7",
+    "@parameter1/base-cms-marko-web-theme-monorail": "^4.40.9",
     "@parameter1/base-cms-marko-web-theme-monorail-magazine": "^4.40.3",
     "@parameter1/base-cms-object-path": "^4.40.3",
     "@parameter1/base-cms-utils": "^4.40.3",
