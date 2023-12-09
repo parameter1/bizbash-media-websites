@@ -1,6 +1,6 @@
 {
   "name": "@bizbash-media/bizbash.com",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "author": "Brian Miller <brian@parameter1.com>",
   "repository": "https://github.com/parameter1/bizbash-media-websites/tree/master/sites/bizbash.com",
   "license": "MIT",
@@ -31,7 +31,7 @@
     "win32"
   ],
   "dependencies": {
-    "@bizbash-media/package-global": "^1.8.0",
+    "@bizbash-media/package-global": "^1.8.2",
     "@parameter1/base-cms-marko-core": "^4.40.3",
     "@parameter1/base-cms-marko-web": "^4.40.3",
     "@parameter1/base-cms-marko-web-gam": "^4.40.3",
