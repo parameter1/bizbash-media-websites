@@ -8,6 +8,7 @@ const search = require('./search');
 module.exports = {
   // Module configs
   gam,
+  useLinkInjectedBody: process.env.USE_LINK_INJECTED_BODY === 'true',
   identityX,
   nativeX,
   navigation,
