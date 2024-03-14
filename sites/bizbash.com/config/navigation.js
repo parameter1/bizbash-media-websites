@@ -237,6 +237,7 @@ module.exports = {
   footer: {
     items: [
       privacyPolicy,
+      { href: 'https://privacyportal-eu-cdn.onetrust.com/dsarwebform/c1f53e84-9f05-4169-a854-85052b63c50b/5f26b553-52cc-4973-a761-295d5634a6b6.html', label: 'CCPA: Do Not Sell My Personal Info' },
       { href: '/page/contact-us', label: 'Contact Us' },
       { href: '/site-map', label: 'Site Map' },
     ],
