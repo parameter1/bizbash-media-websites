@@ -63,7 +63,7 @@ services:
     environment:
       <<: *env
 
-  bzb:
+  bizbash:
     <<: *site-cmd
     working_dir: /root/sites/bizbash.com
     environment:
