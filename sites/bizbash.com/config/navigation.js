@@ -7,7 +7,7 @@ const topics = [
   { href: '/event-tech-virtual', label: 'Event Tech & Virtual' },
   { href: '/venues-destinations', label: 'Venues & Destinations' },
   { href: '/meetings-trade-shows', label: 'Meetings & Trade Shows' },
-  { href: '/bizbash-sports', label: 'BizBash Sports' },
+  { href: '/sports', label: 'Sports' },
   { href: '/page/build-your-brand-with-bizbash', label: 'Advertise' },
   { href: '/events', label: 'Events' },
 ];
