@@ -1,8 +1,6 @@
 const configureNativeX = require('@bizbash-media/package-global/config/native-x');
 
-const config = configureNativeX(
-  { uri: 'https://bizbash.native-x.parameter1.com' },
-);
+const config = configureNativeX();
 
 config
   .setAliasPlacements('default', [

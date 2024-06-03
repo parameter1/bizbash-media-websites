@@ -1,4 +1,4 @@
 module.exports = {
-  href: '/page/privacy-policy',
+  href: 'https://www.informa.com/privacy-policy/',
   label: 'Privacy Policy',
 };

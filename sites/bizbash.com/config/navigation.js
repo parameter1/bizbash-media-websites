@@ -7,7 +7,7 @@ const topics = [
   { href: '/event-tech-virtual', label: 'Event Tech & Virtual' },
   { href: '/venues-destinations', label: 'Venues & Destinations' },
   { href: '/meetings-trade-shows', label: 'Meetings & Trade Shows' },
-  { href: '/bizbash-sports', label: 'BizBash Sports' },
+  { href: '/sports', label: 'Sports' },
   { href: '/page/build-your-brand-with-bizbash', label: 'Advertise' },
   { href: '/events', label: 'Events' },
 ];
@@ -18,7 +18,7 @@ const resources = [
   { href: '/on-demand/gathergeeks', label: 'Podcast' },
   { href: '/magazine/5b2a4e6c0305572b008b45ae', label: 'Magazine' },
   { href: '/events', label: 'Events' },
-  { href: 'https://www.bizbashlive.com/11EEA', label: 'Awards', target: '_blank' },
+  { href: 'https://www.bizbashlive.com/12EEA', label: 'Awards', target: '_blank' },
   { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Subscribe', target: '_blank' },
 ];
 
@@ -26,6 +26,7 @@ const utilities = [
   { href: '/page/about-us', label: 'About Us' },
   { href: '/page/build-your-brand-with-bizbash', label: 'Advertise' },
   { href: '/page/get-featured', label: 'Get Featured' },
+  { href: '/press-releases', label: 'Press Releases' },
   { href: 'https://cloud.mail.bizbash.com/BizBashBuzz_Subscribe', label: 'Newsletter Signup', target: '_blank' },
   { href: 'https://cloud.mail.bizbash.com/BizbashMagazineSubscribe', label: 'Subscribe to Magazine', target: '_blank' },
 ];
@@ -236,6 +237,7 @@ module.exports = {
   footer: {
     items: [
       privacyPolicy,
+      { href: 'https://privacyportal-eu-cdn.onetrust.com/dsarwebform/c1f53e84-9f05-4169-a854-85052b63c50b/5f26b553-52cc-4973-a761-295d5634a6b6.html', label: 'CCPA: Do Not Sell My Personal Info' },
       { href: '/page/contact-us', label: 'Contact Us' },
       { href: '/site-map', label: 'Site Map' },
     ],
