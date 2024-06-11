@@ -431,9 +431,9 @@
     stoppable "^1.1.0"
 
 "@grpc/grpc-js@^1.8.7":
-  version "1.8.11"
-  resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.8.11.tgz#f113f7bc197e8d6f3d3f0c6b02925c7a5da1aec4"
-  integrity sha512-f/xC+6Z2QKsRJ+VSSFlt4hA5KSRm+PKvMWV8kMPkMgGlFidR6PeIkXrOasIY2roe+WROM6GFQLlgDKfeEZo2YQ==
+  version "1.8.22"
+  resolved "https://registry.yarnpkg.com/@grpc/grpc-js/-/grpc-js-1.8.22.tgz#847930c9af46e14df05b57fc12325db140ceff1d"
+  integrity sha512-oAjDdN7fzbUi+4hZjKG96MR6KTEubAeMpQEb+77qy+3r0Ua5xTFuie6JOLr4ZZgl5g+W5/uRTS2M1V8mVAFPuA==
   dependencies:
     "@grpc/proto-loader" "^0.7.0"
     "@types/node" ">=12.12.47"
