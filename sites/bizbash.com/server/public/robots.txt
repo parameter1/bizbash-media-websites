@@ -5,5 +5,11 @@ User-agent: *
 Disallow: /__
 Disallow: /print/content
 
+User-agent: AhrefsBot
+Crawl-Delay: 10
+
+User-agent: DataForSeoBot
+Crawl-Delay: 10
+
 Sitemap: https://www.bizbash.com/sitemap.xml
 Sitemap: https://www.bizbash.com/sitemap-google-news.xml
