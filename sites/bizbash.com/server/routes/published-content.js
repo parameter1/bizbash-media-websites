@@ -64,7 +64,7 @@ const types = [
 ];
 
 module.exports = (app) => {
-  app.get('/:alias(events)', (_, res) => { res.marko(events); });
+  app.get('/:alias(events||live-events||virtual-events)', (_, res) => { res.marko(events); });
   types.forEach(({
     alias,
     name,
