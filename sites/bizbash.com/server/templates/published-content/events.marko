@@ -1,9 +1,10 @@
 $ const { id, alias, name, pageNode } = input;
-$ const { GAM } = out.global
+$ const { GAM, req } = out.global
+$ const aliasToMatch = alias ? alias : req.params.alias;
 
-<theme-default-page id=id alias=alias name=name>
+<theme-default-page id=id alias=aliasToMatch name=name>
   <@head>
-    <marko-web-gtm-website-section-context|{ context }| alias=alias>
+    <marko-web-gtm-website-section-context|{ context }| alias=aliasToMatch>
       <marko-web-gtm-push data=context />
     </marko-web-gtm-website-section-context>
     <marko-web-resolve-page|{ data: section }| node=pageNode>
@@ -13,49 +14,51 @@ $ const { GAM } = out.global
   </@head>
   <if(GAM.enableRevealAd)>
     <@above-container>
-      <theme-reveal-ad-handler select-all-targets=true path=GAM.getAdUnit({ name: "reskin", aliases: ["events"] }).path id="reveal-ad" />
+      <theme-reveal-ad-handler select-all-targets=true path=GAM.getAdUnit({ name: "reskin", aliases: [aliasToMatch] }).path id="reveal-ad" />
     </@above-container>
   </if>
   <@page>
     <marko-web-page-wrapper>
-      <@section>
-        <theme-section-feed-block
-          alias="virtual-events"
-          header=true
-          modifiers=["virtual-events"]
-        >
-          <@header>
-            The latest virtual events from BizBash.
-          </@header>
-          <@query-params
-            include-content-types=["Event"]
-            sort= { field: 'startDate', order: 'asc' }
-            limit=18
-          />
-          <@node-list innerJustified=false ...input.nodeList />
-          <@node with-section=true with-dates=true />
-        </theme-section-feed-block>
-      </@section>
-
-      <@section>
-        <theme-section-feed-block
-          alias="live-events"
-          header="Live Events"
-          modifiers=["live-events"]
-        >
-          <@header>
-            The latest live events in partnership with Connect.
-          </@header>
-          <@query-params
-            include-content-types=["Event"]
-            sort= { field: 'startDate', order: 'asc' }
-            limit=18
-          />
-          <@node-list innerJustified=false ...input.nodeList />
-          <@node with-section=true with-dates=true />
-        </theme-section-feed-block>
-      </@section>
-
+      <if(["events", "virtual-events"].includes(aliasToMatch))>
+        <@section>
+          <theme-section-feed-block
+            alias="virtual-events"
+            header=true
+            modifiers=["virtual-events"]
+          >
+            <@header>
+              The latest virtual events from BizBash.
+            </@header>
+            <@query-params
+              include-content-types=["Event"]
+              sort= { field: 'startDate', order: 'asc' }
+              limit=18
+            />
+            <@node-list innerJustified=false ...input.nodeList />
+            <@node with-section=true with-dates=true />
+          </theme-section-feed-block>
+        </@section>
+      </if>
+      <if(["events", "live-events"].includes(aliasToMatch))>
+        <@section>
+          <theme-section-feed-block
+            alias="live-events"
+            header="Live Events"
+            modifiers=["live-events"]
+          >
+            <@header>
+              The latest live events in partnership with Connect.
+            </@header>
+            <@query-params
+              include-content-types=["Event"]
+              sort= { field: 'startDate', order: 'asc' }
+              limit=18
+            />
+            <@node-list innerJustified=false ...input.nodeList />
+            <@node with-section=true with-dates=true />
+          </theme-section-feed-block>
+        </@section>
+      </if>
     </marko-web-page-wrapper>
   </@page>
 </theme-default-page>
