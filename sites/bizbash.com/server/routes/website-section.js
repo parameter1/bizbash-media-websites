@@ -15,10 +15,6 @@ module.exports = (app) => {
     template: venueDirectory,
     queryFragment,
   }));
-  app.get('/:alias(live-events)', withWebsiteSection({
-    template: upcoming,
-    queryFragment,
-  }));
   app.get('/:alias(events)', withWebsiteSection({
     template: upcoming,
     queryFragment,
