@@ -1,4 +1,4 @@
-const { getAsArray } = require('@parameter1/base-cms-object-path');
+const { getAsArray } = require('@mindful-web/object-path');
 
 const categories = (obj, key, value) => ([...new Set([
   ...getAsArray(obj, key),

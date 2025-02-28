@@ -1,8 +1,8 @@
 const newrelic = require('newrelic');
-const { startServer } = require('@parameter1/base-cms-marko-web');
-const { set, get, getAsObject } = require('@parameter1/base-cms-object-path');
-const identityX = require('@parameter1/base-cms-marko-web-identity-x');
-const loadInquiry = require('@parameter1/base-cms-marko-web-inquiry');
+const { startServer } = require('@mindful-web/marko-web');
+const { set, get, getAsObject } = require('@mindful-web/object-path');
+const identityX = require('@mindful-web/marko-web-identity-x');
+const loadInquiry = require('@mindful-web/marko-web-inquiry');
 
 const document = require('./components/document');
 const components = require('./components');

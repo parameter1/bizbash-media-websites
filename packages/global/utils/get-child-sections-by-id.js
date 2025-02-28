@@ -1,4 +1,4 @@
-const { getAsArray } = require('@parameter1/base-cms-object-path');
+const { getAsArray } = require('@mindful-web/object-path');
 
 const getChildSectionsById = (section, childSections = {}, includeSelf = true) => {
   const { id } = section;

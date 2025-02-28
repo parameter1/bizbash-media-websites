@@ -1,10 +1,10 @@
 const newrelic = require('newrelic');
-const { startServer } = require('@parameter1/base-cms-marko-web');
-const { set, get } = require('@parameter1/base-cms-object-path');
-const loadInquiry = require('@parameter1/base-cms-marko-web-inquiry');
-const htmlSitemapPagination = require('@parameter1/base-cms-marko-web-html-sitemap/middleware/paginated');
-const companySearchHandler = require('@parameter1/base-cms-marko-web-theme-monorail/routes/company-search');
-const identityX = require('@parameter1/base-cms-marko-web-identity-x');
+const { startServer } = require('@mindful-web/marko-web');
+const { set, get } = require('@mindful-web/object-path');
+const loadInquiry = require('@mindful-web/marko-web-inquiry');
+const htmlSitemapPagination = require('@mindful-web/marko-web-html-sitemap/middleware/paginated');
+const companySearchHandler = require('@mindful-web/marko-web-theme-monorail/routes/company-search');
+const identityX = require('@mindful-web/marko-web-identity-x');
 
 const document = require('./components/document');
 const components = require('./components');
