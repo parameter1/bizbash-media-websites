@@ -23,16 +23,16 @@ x-env-defaults: &env
   SENDGRID_DEV_TO: support@parameter1.com
   YARN_CACHE_FOLDER: /.yarn-cache
   IDENTITYX_API_TOKEN: ${IDENTITYX_API_TOKEN-(unset)}
-  BASE_BROWSE_GRAPHQL_URI: ${BASE_BROWSE_GRAPHQL_URI-https://base-browse.tauron.base.parameter1.com/graphql}
+  BASE_BROWSE_GRAPHQL_URI: ${BASE_BROWSE_GRAPHQL_URI-https://browse.tauron.mindful-web.parameter1.com/graphql}
   USE_LINK_INJECTED_BODY: ${USE_LINK_INJECTED_BODY-false}
   RECAPTCHA_V3_SITE_KEY: ${RECAPTCHA_V3_SITE_KEY-(unset)}
   RECAPTCHA_V3_SECRET_KEY: ${RECAPTCHA_V3_SECRET_KEY-(unset)}
 
 x-env-tauron: &env-tauron
-  GRAPHQL_URI: ${GRAPHQL_URI-https://graphql.tauron.base.parameter1.com}
-  OEMBED_URI: ${OEMBED_URI-https://oembed.tauron.base.parameter1.com}
-  RSS_URI: ${RSS_URI-https://rss.tauron.base.parameter1.com}
-  SITEMAPS_URI: ${SITEMAPS_URI-https://sitemaps.tauron.base.parameter1.com}
+  GRAPHQL_URI: ${GRAPHQL_URI-https://graphql.tauron.mindful-web.parameter1.com}
+  OEMBED_URI: ${OEMBED_URI-https://oembed.tauron.mindful-web.parameter1.com}
+  RSS_URI: ${RSS_URI-https://rss.tauron.mindful-web.parameter1.com}
+  SITEMAPS_URI: ${SITEMAPS_URI-https://sitemaps.tauron.mindful-web.parameter1.com}
 
 x-env-development: &env-development
   GRAPHQL_URI: ${GRAPHQL_URI-http://host.docker.internal:10002}

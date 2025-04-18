@@ -151,9 +151,9 @@
 </template>
 
 <script>
-import recaptchaLoad from '@parameter1/base-cms-marko-web-recaptcha/browser/load';
-import recaptchaGetToken from '@parameter1/base-cms-marko-web-recaptcha/browser/get-token';
-import FormMixin from '@parameter1/base-cms-marko-web-inquiry/browser/form-mixin';
+import recaptchaLoad from '@mindful-web/marko-web-recaptcha/browser/load';
+import recaptchaGetToken from '@mindful-web/marko-web-recaptcha/browser/get-token';
+import FormMixin from '@mindful-web/marko-web-inquiry/browser/form-mixin';
 
 export default {
   mixins: [FormMixin],

@@ -1,15 +1,15 @@
-import { getAsArray } from "@parameter1/base-cms-object-path";
+import { getAsArray } from "@mindful-web/object-path";
 import gql from "graphql-tag";
 import fetch from "node-fetch";
-import { extractFragmentData } from "@parameter1/base-cms-web-common/utils";
-import queryFragment from "@parameter1/base-cms-marko-web-theme-monorail/graphql/fragments/most-popular-block";
+import { extractFragmentData } from "@mindful-web/web-common/utils";
+import queryFragment from "@mindful-web/marko-web-theme-monorail/graphql/fragments/most-popular-block";
 
 $ const { MOST_POPULAR_API_URI } = process.env;
 $ const { site, config, apollo, i18n } = out.global;
 $ const title = input.title || "Most Popular";
 
 $ const getMostPopular = async () => {
-  const uri = MOST_POPULAR_API_URI || 'https://most-popular-content.base.parameter1.com';
+  const uri = MOST_POPULAR_API_URI || 'https://most-popular-content.mindful-web.parameter1.com';
   const tenant = site.get("p1events.tenant");
   const realm = config.website("id");
 

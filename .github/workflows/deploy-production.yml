@@ -26,7 +26,7 @@ jobs:
 
   post-deploy-failure:
     if: failure()
-    needs: [notify-start, deploy-sites]
+    needs: [notify-start, build-sites, deploy-sites]
     uses: parameter1/actions/.github/workflows/notify-fail.yml@main
     secrets: inherit
     with:
@@ -34,7 +34,7 @@ jobs:
 
   post-deploy-complete:
     if: success()
-    needs: [notify-start, deploy-sites]
+    needs: [notify-start, build-sites, deploy-sites]
     uses: parameter1/actions/.github/workflows/notify-complete.yml@main
     secrets: inherit
     with:
@@ -59,7 +59,7 @@ jobs:
         ###############################################
     with:
       ecr_registry: ${{ vars.AWS_ECR_REGISTRY }}
-      docker_image: ${{ vars.AWS_ECR_REGISTRY }}/base-cms-websites:${{ matrix.site.account }}-${{ matrix.site.dir }}-${{ needs.version.outputs.version }}
+      docker_image: ${{ vars.AWS_ECR_REGISTRY }}/mindful-web/websites:${{ matrix.site.account }}-${{ matrix.site.dir }}-${{ needs.version.outputs.version }}
       site_host: ${{ matrix.site.dir }}
       push: true
     secrets: inherit
@@ -79,9 +79,9 @@ jobs:
         ###############################################
     with:
       ecr_registry: ${{ vars.AWS_ECR_REGISTRY }}
-      docker_image: ${{ vars.AWS_ECR_REGISTRY }}/base-cms-websites:${{ matrix.site.account }}-${{ matrix.site.dir }}-${{ needs.version.outputs.version }}
+      docker_image: ${{ vars.AWS_ECR_REGISTRY }}/mindful-web/websites:${{ matrix.site.account }}-${{ matrix.site.dir }}-${{ needs.version.outputs.version }}
       infra_stack: ${{ matrix.site.stack }}
-      rancher_label_key: basecms-website
+      rancher_label_key: mindful-web-website
       rancher_label_val: ${{ matrix.site.rancher_label }}
       site_dir: ${{ matrix.site.dir }}
       site_id: ${{ matrix.site.id }}

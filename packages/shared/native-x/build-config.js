@@ -1,5 +1,5 @@
-const NativeXConfiguration = require('@parameter1/base-cms-marko-web-native-x/config');
-const { asObject } = require('@parameter1/base-cms-utils');
+const NativeXConfiguration = require('@mindful-web/marko-web-native-x/config');
+const { asObject } = require('@mindful-web/utils');
 
 module.exports = ({
   uri = 'https://ascend.native-x.parameter1.com',

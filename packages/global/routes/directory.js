@@ -1,6 +1,6 @@
-const { withWebsiteSection } = require('@parameter1/base-cms-marko-web/middleware');
-const MarkoWebSearchConfig = require('@parameter1/base-cms-marko-web-search/config');
-const MarkoWebSearch = require('@parameter1/base-cms-marko-web-search');
+const { withWebsiteSection } = require('@mindful-web/marko-web/middleware');
+const MarkoWebSearchConfig = require('@mindful-web/marko-web-search/config');
+const MarkoWebSearch = require('@mindful-web/marko-web-search');
 const queryFragment = require('../graphql/fragments/website-directory-section-page');
 const directory = require('../templates/directory/index');
 
